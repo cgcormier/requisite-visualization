@@ -1,4 +1,9 @@
 
+#pragma once
+
+#include <string>
+#include <vector>
+
 class Course{
     private: 
         std::string name;

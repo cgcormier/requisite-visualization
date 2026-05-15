@@ -41,7 +41,7 @@ std::vector<std::string> Graph::grabPreReqs(std::string id){
     std::ifstream file("courses.csv");
     if(!file.is_open()){
         std::cerr << "Error opening file!" << std::endl;
-        return;
+        return {};
     }
     std::vector<std::string> prereqs; 
     std::string line = "";
@@ -65,4 +65,5 @@ std::vector<std::string> Graph::grabPreReqs(std::string id){
         }
     }
 
+    return prereqs;
 }
