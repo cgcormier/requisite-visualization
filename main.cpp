@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include "Course.h"
+#include "DatabaseConfig.h"
 #include <iostream>
 
 void testCountPaths(Graph& graph, const std::string& start, const std::string& end, int expected) {
@@ -10,6 +11,9 @@ void testCountPaths(Graph& graph, const std::string& start, const std::string& e
 }
 
 int main() {
+    DatabaseConfig dbConfig = DatabaseConfig::fromEnvironment();
+    std::cout << "database config: " << dbConfig.safeConnectionUri() << std::endl;
+
     std::unordered_map<std::string, std::vector<std::string>> adj;
     Graph total(adj);
 
@@ -25,6 +29,8 @@ int main() {
     testCountPaths(total, "CMPSC 16", "CMPSC 32", 2);
     testCountPaths(total, "CMPSC 24", "CMPSC 170", 2);
     testCountPaths(total, "CMPSC 5B", "CMPSC 5A", -1);
+    testCountPaths(total, "CMPSC 8", "CMPSC 189A", 4);
+    
 
     return 0;
 }

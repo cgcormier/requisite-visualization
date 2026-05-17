@@ -1,72 +1,1146 @@
 id,name,credits,college,prereqs
-CMPSC 5B,Introduction to Data Science 2,4,College of Engineering,"CMPSC 5A|CMPSC 8|ECE 3"
-CMPSC 5A,Introduction to Data Science 1,4,College of Engineering,""
-CMPSC 8,Introduction to Computer Science,4,College of Engineering,""
-CMPSC 9,Intermediate Python Programming,4,College of Engineering,"CMPSC 8|CMPSC W8|ENGR 3|ENGR W3|ECE 3"
-CMPSC 16,Problem Solving with Computers I,4,College of Engineering,"MATH 3A|MATH 2A|CMPSC 8|ENGR 3|ECE 3"
-CMPSC 24,Problem Solving with Computers II,4,College of Engineering,"CMPSC 16|MATH 3B|MATH 2B"
-CMPSC 32,Object Oriented Design and Implementation,4,College of Engineering,"CMPSC 24"
-CMPSC 40,Foundations of Computer Science,5,College of Engineering,"CMPSC 16|MATH 4A"
-CMPSC 64,Computer Organization and Logic Design,4,College of Engineering,"CMPSC 16|MATH 3C|MATH 4A"
-CMPSC 99,Independent Studies in Computer Science,1,College of Engineering,""
-CMPSC 100,Introduction to Teaching Methods in Computer Science,4,College of Engineering,""
-CMPSC 110,Introduction to Research in Computer Science,4,College of Engineering,"CMPSC 40|CMPSC 32"
-CMPSC 111,Introduction to Computational Science,4,College of Engineering,"MATH 4B|MATH 6A|CMPSC 24"
-CMPSC 130A,Data Structures and Algorithms I,4,College of Engineering,"CMPSC 40|MATH 8|CMPSC 9|CMPSC 24|PSTAT 120A|ECE 139"
-CMPSC 130B,Data Structures and Algorithms II,4,College of Engineering,"CMPSC 130A"
-CMPSC 132,Algorithms Engineering,4,College of Engineering,""
-CMPSC 134,Randomized Algorithms,4,College of Engineering,"CMPSC 130B"
-CMPSC 138,Automata and Formal Languages,4,College of Engineering,"CMPSC 40"
-CMPSC 140,Parallel Computing,4,College of Engineering,"MATH 4A|CMPSC 32|CMPSC 130A"
-CMPSC 148,Computer Science Project,4,College of Engineering,"CMPSC 32"
-CMPSC 153A,Hardware/Software Interface,4,College of Engineering,""
-CMPSC 154,Computer Architecture,4,College of Engineering,"CMPSC 32|CMPSC 64"
-CMPSC 156,Advanced Applications Programming,4,College of Engineering,"CMPSC 24|CMPSC 32"
-CMPSC 160,Translation of Programming Languages,4,College of Engineering,"CMPSC 32|CMPSC 64|ECE 154A|CMPSC 130A|CMPSC 138"
-CMPSC 162,Programming Languages,4,College of Engineering,"CMPSC 130A|CMPSC 138"
-CMPSC 165A,Artificial Intelligence,4,College of Engineering,"CMPSC 130A"
-CMPSC 165B,Machine Learning,4,College of Engineering,"CMPSC 130A"
-CMPSC 170,Operating Systems,4,College of Engineering,"CMPSC 130A|CMPSC 154|ECE 154A"
-CMPSC 171,Distributed Systems,4,College of Engineering,"CMPSC 130A"
-CMPSC 172,Software Engineering,4,College of Engineering,"CMPSC 130A"
-CMPSC 174A,Fundamentals of Database Systems,4,College of Engineering,"CMPSC 32|CMPSC 130A"
-CMPSC 174B,Design and Implementation Techniques of Database Systems,4,College of Engineering,"CMPSC 130B"
-CMPSC 176A,Introduction to Computer Communication Networks,4,College of Engineering,"CMPSC 32|PSTAT 120A|ECE 139"
-CMPSC 176B,Network Computing,4,College of Engineering,"CMPSC 176A"
-CMPSC 176C,Advanced Topics in Internet Computing,4,College of Engineering,"CMPSC 176A"
-CMPSC 177,Computer Security,4,College of Engineering,"CMPSC 170"
-CMPSC 178,Introduction to Cryptography,4,College of Engineering,"CMPSC 24|CMPSC 40|PSTAT 120A|ECE 139"
-CMPSC 180,Computer Graphics,4,College of Engineering,"CMPSC 130A"
-CMPSC 181,Introduction to Computer Vision,4,College of Engineering,""
-CMPSC 184,Mobile Application Development,4,College of Engineering,"CMPSC 56|CMPSC 156|CMPSC 130A"
-CMPSC 185,Human-Computer Interaction,4,College of Engineering,""
-CMPSC 186,Internet of Things (IoT) Systems,4,College of Engineering,""
-CMPSC 188,Introduction to Natural Language Processing,4,College of Engineering,""
-CMPSC 189A,Senior Computer Systems Project,4,College of Engineering,"CMPSC 56"
-CMPSC 189B,Senior Computer Systems Project,4,College of Engineering,"CMPSC 172|CMPSC 189A"
-CMPSC 209,Logic and Applications in Computer Science,4,College of Engineering,""
-CMPSC 211A,Matrix Analysis and Computation,4,College of Engineering,""
-CMPSC 211B,Numerical Simulation,4,College of Engineering,""
-CMPSC 211C,Numerical Solution of Partial Differential Equations - Finite Difference Methods,4,College of Engineering,""
-CMPSC 211D,Numerical Solution of Partial Differential Equations - Finite Element Methods,4,College of Engineering,""
-CMPSC 216,Level Set Methods,4,College of Engineering,"CMPSC 211C|CH E 211C|ECE 210C|ME 210C"
-CMPSC 219,Sparse Matrix Algorithms,4,College of Engineering,""
-CMPSC 220,Theory of Computation and Complexity,4,College of Engineering,"CMPSC 186"
-CMPSC 225,Information Theory,4,College of Engineering,"ECE 139|PSTAT 120A|PSTAT 120B"
-CMPSC 231,Topics in Combinatorial Algorithms,4,College of Engineering,"CMPSC 130B"
-CMPSC 235,Computational Geometry,4,College of Engineering,"CMPSC 130A|CMPSC 130B"
-CMPSC 240A,Applied Parallel Computing,4,College of Engineering,"CMPSC 154|CMPSC 160"
-CMPSC 254,Advanced Computer Architecture,4,College of Engineering,"CMPSC 154|ECE 154"
-CMPSC 260,Advanced Topics in Program Analysis,4,College of Engineering,"CMPSC 160|CMPSC 162"
-CMPSC 266,Formal Specification and Verification,4,College of Engineering,"CMPSC 130A|CMPSC 130B|CMPSC 186"
-CMPSC 267,Automated Verification,4,College of Engineering,"CMPSC 130A|CMPSC 130B|CMPSC 138"
-CMPSC 270,Operating Systems,4,College of Engineering,"CMPSC 170"
-CMPSC 271,Advanced Topics in Distributed Systems,4,College of Engineering,"CMPSC 170"
-CMPSC 272,Software Engineering,4,College of Engineering,""
-CMPSC 273,Data and Knowledge Bases,4,College of Engineering,""
-CMPSC 274,Advanced Topics in Database Systems,4,College of Engineering,"CMPSC 170"
-CMPSC 276,Advanced Topics in Networking,4,College of Engineering,"CMPSC 176A|CMPSC 176B"
-CMPSC 279,Advanced Topics in Security,4,College of Engineering,"CMPSC 177"
-CMPSC 280,Computer Graphics,4,College of Engineering,"CMPSC 180"
-CMPSC 281B,Advanced Topics in Computer Vision,4,College of Engineering,""
-CMPSC 284,Mobile Computing,4,College of Engineering,"CMPSC 176A|CMPSC 176B"
+BIOE 101,Responsible Conduct of Research,1,College of Engineering,
+BIOE 120A,Molecular Bioengineering,3,College of Engineering,"CHEM 1B, CHEM 1BL, MATH 6B, PHYS 7B"
+BIOE 120B,Cellular Bioengineering,3,College of Engineering,"| BIOE 120A, ENGR 120A"
+BIOE 201,Responsible Conduct of Research,2,College of Engineering,
+BIOE 210,Biomolecular and Biochemical Methods,3,College of Engineering,
+BIOE 211,Quantitative Experiments,3,College of Engineering,
+BIOE 212,Great Experiments,4,College of Engineering,"BIOE 210, BIOE 211"
+BIOE 220A,Molecular Bioengineering,3,College of Engineering,"MATH 6B, PHYS 3 | CHEM 1B, CHEM 2B"
+BIOE 220B,Cell and Tissue Bioengineering,3,College of Engineering,ENGR 220A
+BIOE 225,Current Topics in Bioengineering,1,College of Engineering,
+BIOE 230,Bioengineering Student Seminar,1,College of Engineering,
+BIOE 230A,Bioengineering Faculty Seminar,1,College of Engineering,
+BIOE 230B, Professional Development in Bioengineering,2,College of Engineering,
+BIOE 240,"Haptics: Touch Perception, Interaction, and Engineering",4,College of Engineering,
+BIOE 241,Engineering Biomaterials,3,College of Engineering,
+BIOE 242,Tissue Engineering and Regenerative Medicine,3,College of Engineering,
+BIOE 243,Protein Engineering,3,College of Engineering,"CHEM 1A, CHEM 1B, CHEM 1C, CHEM 109A, MCDB 1A"
+BIOE 244,Introduction to Machine Learning  for Processing of Biological Images and Structural Biology,3,College of Engineering,
+BIOE 250,Special Topics in Biological Engineering,99,College of Engineering,
+BIOE 250AA,Tissue Engineering and Regenerative Medicine,3,College of Engineering,
+BIOE 250AB,Protein Engineering,3,College of Engineering,"CHEM 1A, CHEM 1B, CHEM 1C, CHEM 109A, MCDB 1A"
+BIOE 250AC,Introduction to Machine Learning  for Processing of Biological Images and Structural Biology,99,College of Engineering,
+BIOE 250AD,Special Topics in Biological Computing,3,College of Engineering,
+BIOE 250AE,Gene Therapy,99,College of Engineering,
+BIOE 250AF,Microalgae: Biotechnology and Applications,99,College of Engineering,
+BIOE 254,Engineering Approaches to Systems Biology,3,College of Engineering,
+BIOE 256,Stem Cell Biology,3,College of Engineering,
+BIOE 258,Methods in Mechanobiology and Biofabrication,3,College of Engineering,
+BIOE 272,Omics-enabled Biotechnology,3,College of Engineering,
+BIOE 274,Model-Guided Engineering of Biological Systems,3,College of Engineering,
+BIOE 299,Independent Study,20,College of Engineering,
+BIOE 493,Internship in Industry,3,College of Engineering,
+BIOE 596,Directed Research,99,College of Engineering,
+CH E 10,Material and Energy Balances,3,College of Engineering,"CH E 5 | CHEM 1A, CHEM 1B, CHEM 1C, CHEM 3A, CHEM 3B, CHEM 3C; MATH 2A, MATH 3A; MATH 2B, MATH 3B; MATH 4A, MATH 4AI"
+CH E 102,Biomaterials and Biosurfaces,3,College of Engineering,
+CH E 107,Introduction to Biological Processing,3,College of Engineering,CH E 10
+CH E 110A,Chemical Engineering Thermodynamics,3,College of Engineering,"CH E 5, CH E 10 | MATH 4B, MATH 4BI"
+CH E 110B,Chemical Engineering Thermodynamics,3,College of Engineering,"CH E 110A | MATH 4B, MATH 4BI"
+CH E 118,Technical Communication of Chemical Engineering,1,College of Engineering,CH E 110A
+CH E 119,Current Events in Chemical Engineering,1,College of Engineering,CH E 110A
+CH E 120A,Transport Processes,4,College of Engineering,"CH E 10, MATH 6B | MATH 4B, MATH 4BI; MATH 6A, MATH 6AI"
+CH E 120B,Transport Processes,3,College of Engineering,"CH E 10, CH E 110A, CH E 120A"
+CH E 120C,Transport Processes,3,College of Engineering,"CH E 10, CH E 110A, CH E 110B, CH E 120B"
+CH E 121,Colloids and Biosurfaces,3,College of Engineering,
+CH E 124,Advanced Topics in Transport Phenomena/Safety,3,College of Engineering,"| CH E 120A, CH E 120B, CH E 120C, ME 151A, ME 151B, ME 152A"
+CH E 125,Principles of Bioengineering,3,College of Engineering,
+CH E 126,"Non-Newtonian Fluids, Soft Materials and Chemical Products",3,College of Engineering,CH E 120C
+CH E 128,Separation Processes,3,College of Engineering,"CH E 10, CH E 110A, CH E 110B"
+CH E 132A,Analytical Methods in Chemical Engineering,4,College of Engineering,"| MATH 4B, MATH 4BI; MATH 6A, MATH 6AI"
+CH E 132B,Computational Methods in Chemical Engineering,3,College of Engineering,"MATH 6B, ENGR 3 | MATH 4B, MATH 4BI; MATH 6A, MATH 6AI"
+CH E 132C,Statistical Methods in Chemical Engineering,3,College of Engineering,"MATH 6B | MATH 4B, MATH 4BI; MATH 6A, MATH 6AI"
+CH E 140A,Chemical Reaction Engineering,3,College of Engineering,"CH E 10, CH E 110A, CH E 110B, CH E 120A, CH E 120B"
+CH E 140B,Chemical Reaction Engineering,3,College of Engineering,"CH E 110A, CH E 110B, CH E 120A, CH E 120B, CH E 140A"
+CH E 141,The Science and Engineering of Energy Conversion,3,College of Engineering,"| CHEM 112A, CHEM 112B, CHEM 112C, CHEM 113A, CHEM 113B, CHEM 113C"
+CH E 146,Heterogeneous Catalysis,3,College of Engineering,"CH E 140A, CH E 140B"
+CH E 152A,Process Dynamics and Control,4,College of Engineering,"CH E 120A, CH E 120B, CH E 120C, CH E 140A"
+CH E 152B,Advanced Process Control,3,College of Engineering,CH E 152A
+CH E 154,Engineering Approaches to Systems Biology,3,College of Engineering,"MATH 6B | CH E 170, CH E 107; MATH 4B, MATH 4BI; MATH 6A, MATH 6AI"
+CH E 160,Introduction to Polymer Science,3,College of Engineering,"| CH E 110A, CHEM 113A"
+CH E 166,Mechatronics and Instrumentation for Chemical Engineers,3,College of Engineering,"ENGR 3, CH E 110A, CH E 110B"
+CH E 170,Molecular and Cellular Biology for Engineers,3,College of Engineering,"CH E 120A, CH E 120B, CH E 120C, CH E 140A"
+CH E 171,Introduction to Biochemical Engineering,3,College of Engineering,"| CH E 107, CH E 170"
+CH E 173,Omics-enabled Biotechnology,3,College of Engineering,"| CH E 170, CH E 107, MCDB 1A"
+CH E 174,Biocircuit Design for Engineers,3,College of Engineering,"CH E 10, CH E 107"
+CH E 179,Biotechnology Laboratory,4,College of Engineering,"| CH E 170, MCDB 1A, CHEM 142A, CHEM 142B"
+CH E 180A,Chemical Engineering Laboratory,3,College of Engineering,"CH E 110A, CH E 120A, CH E 120B"
+CH E 180B,Chemical Engineering Laboratory,3,College of Engineering,"CH E 120C, CH E 128, CH E 140A, CH E 152A"
+CH E 184A,Design of Chemical Processes,3,College of Engineering,"CH E 110A, CH E 110B, CH E 120A, CH E 120B, CH E 120C, CH E 128, CH E 132B, CH E 140A, CH E 140B, CH E 152A"
+CH E 184B,Design of Chemical Processes,3,College of Engineering,CH E 184A
+CH E 193,Internship in Industry,12,College of Engineering,
+CH E 196,Undergraduate Research,12,College of Engineering,
+CH E 198,Independent Studies in Chemical Engineering,12,College of Engineering,
+CH E 202,Biomaterials and Biosurfaces,3,College of Engineering,
+CH E 210A,Fundamentals and Applications of Classical Thermodynamics and Statistical Mechanics,4,College of Engineering,
+CH E 210B,Advanced Topics in Equilibrium Statistical Mechanics,3,College of Engineering,
+CH E 210C,Statistical Mechanics,3,College of Engineering,
+CH E 210D,Principles of Modern Molecular Simulation Methods,3,College of Engineering,
+CH E 211A,Matrix Analysis and Computation,4,College of Engineering,
+CH E 211B,Numerical Simulation,4,College of Engineering,
+CH E 211C,Numerical Solution of Partial Differential Equations--Finite Difference Methods,4,College of Engineering,
+CH E 211D,Numerical Solution of Partial Differential Equations--Finite Element Methods,4,College of Engineering,
+CH E 216A,Introduction to Magnetic Resonance Spectroscopy Techniques,3,College of Engineering,
+CH E 216B,Advanced Methods of Magnetic Resonance with Applications to Materials Science,3,College of Engineering,
+CH E 220A,Advanced Transport Processes-Laminar Flow and Convective Transport Processes,4,College of Engineering,
+CH E 220B,Advanced Transport Processes-Laminar Flow and Convective Transport Processes,3,College of Engineering,
+CH E 220C,Advanced Transport Processes-Mass Transfer,3,College of Engineering,
+CH E 220D,Complex Fluids and Rheology,3,College of Engineering,"CH E 220A, CH E 220B"
+CH E 222,Colloids and Biosurfaces,3,College of Engineering,
+CH E 222A,Colloids and Interfaces I,3,College of Engineering,
+CH E 222B,Colloids and Interfaces II,3,College of Engineering,
+CH E 228,"Non-Newtonian Fluids, Soft Materials and Chemical Products",3,College of Engineering,
+CH E 230A,Advanced Theoretical Methods in Engineering,4,College of Engineering,
+CH E 230B,Advanced Theoretical Methods in Engineering,3,College of Engineering,CH E 230A
+CH E 230D,Statistical Methods in Chemical Engineering,3,College of Engineering,
+CH E 238A,Rheology of Complex Fluids,3,College of Engineering,
+CH E 240A,Advanced Chemical Reaction Engineering,3,College of Engineering,
+CH E 240B,Advanced Chemical Reaction Engineering,3,College of Engineering,
+CH E 240C,Advanced Catalysis,3,College of Engineering,
+CH E 241,Advanced Science and Engineering of Energy Conversion,3,College of Engineering,
+CH E 246,Advanced Catalysis,3,College of Engineering,
+CH E 248,Reaction Rate Theory,3,College of Engineering,CHEM 248
+CH E 255,Methods in Systems Biology,3,College of Engineering,
+CH E 258,Protein Design and Engineering,3,College of Engineering,
+CH E 260,Introduction to Polymer Science,3,College of Engineering,
+CH E 266,Mechatronics and Instrumentation for Chemical Engineers,3,College of Engineering,
+CH E 272,Omics-enabled Biotechnology,3,College of Engineering,
+CH E 274,Model-Guided Engineering of Biological Systems,3,College of Engineering,
+CH E 286,Model Predictive Control and Moving Horizon Estimation,4,College of Engineering,"| ECE 230A, ME 243A"
+CH E 289A,Spectroscopy of Materials,3,College of Engineering,
+CH E 290,Chemical Engineering Forum,0.5,College of Engineering,
+CH E 291,Research Group Studies,99,College of Engineering,
+CH E 294B,Bioengineering: Career and Development Opportunities at the Interface between Biotechnology and Engineering,2,College of Engineering,
+CH E 295,"Group Studies: Controls, Dynamical Systems, and Computation",1,College of Engineering,
+CH E 493,Internship in Industry,99,College of Engineering,
+CH E 5,Introduction to Chemical Engineering Design,3,College of Engineering,
+CH E 594,Special Topics,99,College of Engineering,
+CH E 596,Directed Reading and Research,99,College of Engineering,
+CH E 597,Individual Study for Master's Comprehensive Examinations and Ph.D.,99,College of Engineering,
+CH E 598,Master's Thesis Research and Preparation,99,College of Engineering,
+CH E 599,Dissertation Research and Preparation,99,College of Engineering,
+CH E 99,Introduction to Research,6,College of Engineering,
+CH E W5,Introduction to Chemical Engineering Design,3,College of Engineering,
+CMPSC 1,Seminar on the Field of Computer Science,1,College of Engineering,
+CMPSC 100,Introduction to Teaching Methods in Computer Science,4,College of Engineering,
+CMPSC 11,Programming Language Laboratory,1,College of Engineering,
+CMPSC 110,Introduction to Research in Computer Science,4,College of Engineering,"CMPSC 40, CMPSC 32"
+CMPSC 111,Introduction to Computational Science,4,College of Engineering,"MATH 4B, MATH 6A, CMPSC 24"
+CMPSC 11AD,Programming Language Laboratory: ADA,1,College of Engineering,
+CMPSC 11AP,Programming Language Laboratory: APL,1,College of Engineering,
+CMPSC 11C,Programming Language Laboratory,1,College of Engineering,
+CMPSC 11CO,Programming Language Laboratory: COBOL,1,College of Engineering,
+CMPSC 11FO,Programming Language Laboratory: Fortran,1,College of Engineering,
+CMPSC 11JA,Programming Language Laboratory,1,College of Engineering,
+CMPSC 11LI,Programming Language Laboratory: LISP,1,College of Engineering,
+CMPSC 11PA,Programming Language Laboratory: Pascal,1,College of Engineering,
+CMPSC 11PL,Programming Language Laboratory: PL/1,1,College of Engineering,
+CMPSC 11SN,Programming Language Laboratory: SNOBOL,1,College of Engineering,
+CMPSC 130A,Data Structures and Algorithms,4,College of Engineering,"| CMPSC 40, MATH 8; CMPSC 24, CMPSC 9; PSTAT 120A, ECE 139"
+CMPSC 130B,Data Structures and Algorithms II,4,College of Engineering,CMPSC 130A
+CMPSC 132,Algorithms Engineering,4,College of Engineering,
+CMPSC 134,Randomized Algorithms,4,College of Engineering,CMPSC 130B
+CMPSC 138,Automata and Formal Languages,4,College of Engineering,CMPSC 40
+CMPSC 140,Parallel Scientific Computing,4,College of Engineering,"MATH 4B, MATH 6A, CMPSC 130A"
+CMPSC 148,Computer Science Project,4,College of Engineering,CMPSC 32
+CMPSC 153A,Hardware/Software Interface,4,College of Engineering,
+CMPSC 154,Computer Architecture,4,College of Engineering,"CMPSC 32, CMPSC 64"
+CMPSC 156,Advanced Applications Programming,4,College of Engineering,"CMPSC 24, CMPSC 32"
+CMPSC 16,Problem Solving with Computers I,4,College of Engineering,"| MATH 3A, MATH 2A; CMPSC 8, ENGR 3, ECE 3"
+CMPSC 160,Translation of Programming Languages,4,College of Engineering,"CMPSC 130A, CMPSC 138 | CMPSC 64, ECE 154, ECE 154A"
+CMPSC 162,Programming Languages,4,College of Engineering,"CMPSC 130A, CMPSC 138"
+CMPSC 165A,Artificial Intelligence,4,College of Engineering,CMPSC 130A
+CMPSC 165B,Machine Learning,4,College of Engineering,CMPSC 130A
+CMPSC 170,Operating Systems,4,College of Engineering,"CMPSC 130A | CMPSC 154, ECE 154A"
+CMPSC 171,Distributed Systems,4,College of Engineering,CMPSC 130A
+CMPSC 172,Software Engineering,4,College of Engineering,CMPSC 130A
+CMPSC 174A,Fundamentals of Database Systems,4,College of Engineering,CMPSC 130A
+CMPSC 174B,Design and Implementation Techniques of Database Systems,4,College of Engineering,CMPSC 130B
+CMPSC 174N,Introduction to Databases,4,College of Engineering,CMPSC 130A
+CMPSC 176A,Introduction to Computer Communication Networks,4,College of Engineering,"CMPSC 32 | PSTAT 120A, ECE 139"
+CMPSC 176B,Network Computing,4,College of Engineering,CMPSC 176A
+CMPSC 176C,Advanced Topics in Internet Computing,4,College of Engineering,CMPSC 176A
+CMPSC 177,Computer Security,4,College of Engineering,CMPSC 170
+CMPSC 178,Introduction to Cryptography,4,College of Engineering,"CMPSC 24, CMPSC 40 | PSTAT 120A, PSTAT 121A, ECE 139"
+CMPSC 180,Computer Graphics,4,College of Engineering,CMPSC 130A
+CMPSC 181,Introduction to Computer Vision,4,College of Engineering,
+CMPSC 182,Multimedia Computing,4,College of Engineering,
+CMPSC 184,Mobile Application Development,4,College of Engineering,"CMPSC 130A | CMPSC 56, CMPSC 156"
+CMPSC 185,Human-Computer Interaction,4,College of Engineering,
+CMPSC 186,Internet of Things (IoT) Systems,4,College of Engineering,"| CMPSC 32, CMPSC 130A"
+CMPSC 188,Introduction to Natural Language Processing,4,College of Engineering,
+CMPSC 189A,Senior Computer Systems Project,4,College of Engineering,"| CMPSC 48, CMPSC 56, CMPSC 148, CMPSC 156, CMPSC 172"
+CMPSC 189B,Senior Computer Systems Project,4,College of Engineering,CMPSC 189A
+CMPSC 190,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 190A,Special Topics in Computer Science: Foundations,4,College of Engineering,
+CMPSC 190B,Special Topics in Computer Science: Software Systems,4,College of Engineering,
+CMPSC 190C,Special Topics in Computer Science: Programming Languages and Software Engineering,4,College of Engineering,
+CMPSC 190D,Special Topics in Computer Science: Information Management,4,College of Engineering,
+CMPSC 190DA,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 190DB,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 190DC,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 190DD,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 190DE,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 190DF,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 190E,Special Topics in Computer Science: Architectures,4,College of Engineering,
+CMPSC 190F,Special Topics in Computer Science: Networking,4,College of Engineering,
+CMPSC 190G,Special Topics in Computer Science: Security,4,College of Engineering,
+CMPSC 190H,Special Topics in Computer Science: Scientific Computing,4,College of Engineering,
+CMPSC 190I,Special Topics in Computer Science: Intelligent and Interactive Systems,4,College of Engineering,
+CMPSC 190J,Special Topics in Computer Science: General,4,College of Engineering,
+CMPSC 190K,Special Topics in Computer Science: Computer Systems Modeling and Analysis,4,College of Engineering,
+CMPSC 190N,Special Topics in Computer Science: General,4,College of Engineering,
+CMPSC 192,Projects in Computer Science,10,College of Engineering,
+CMPSC 193,Internship in Industry,12,College of Engineering,
+CMPSC 196,Undergraduate Research,12,College of Engineering,
+CMPSC 196B,Undergraduate Research,12,College of Engineering,"CMPSC 196, CMPSC 2"
+CMPSC 199,Independent Studies in Computer Science,30,College of Engineering,
+CMPSC 2,Computational Thinking for Scientists,4,College of Engineering,MATH 4A
+CMPSC 209,Logic and Applications in Computer Science,4,College of Engineering,
+CMPSC 211A,Matrix Analysis and Computation,4,College of Engineering,
+CMPSC 211B,Numerical Simulation,4,College of Engineering,
+CMPSC 211C,Numerical Solution of Partial Differential Equations--Finite Difference Methods,4,College of Engineering,
+CMPSC 211D,Numerical Solution of Partial Differential Equations--Finite Element Methods,4,College of Engineering,
+CMPSC 216,Level Set Methods,4,College of Engineering,"| CMPSC 211C, CH E 211C, ECE 210C, ME 210C"
+CMPSC 219,Sparse Matrix Algorithms,4,College of Engineering,
+CMPSC 220,Theory of Computation and Complexity,4,College of Engineering,CMPSC 186
+CMPSC 225,Information Theory,4,College of Engineering,"| ECE 139, PSTAT 120A, PSTAT 120B"
+CMPSC 230,"Approximations, NP-Completeness and Algorithms",4,College of Engineering,"CMPSC 130A, CMPSC 130B"
+CMPSC 231,Topics in Combinatorial Algorithms,4,College of Engineering,CMPSC 130B
+CMPSC 235,Computational Geometry,4,College of Engineering,"CMPSC 130A, CMPSC 130B"
+CMPSC 24,Problem Solving with Computers II,4,College of Engineering,"CMPSC 16 | MATH 3B, MATH 2B"
+CMPSC 240A,Applied Parallel Computing,4,College of Engineering,"CMPSC 154, CMPSC 160"
+CMPSC 24A,Problem Solving with Computers II,4,College of Engineering,"CMPSC 16 | MATH 3B, MATH 2B"
+CMPSC 254,Advanced Computer Architecture,4,College of Engineering,"| CMPSC 154, ECE 154"
+CMPSC 260,Advanced Topics in Program Analysis,4,College of Engineering,"CMPSC 160, CMPSC 162"
+CMPSC 263,Runtime Systems,4,College of Engineering,"CMPSC 154, CMPSC 160, CMPSC 162"
+CMPSC 266,Formal Specification and Verification,4,College of Engineering,"CMPSC 130A, CMPSC 130B, CMPSC 186"
+CMPSC 267,Automated Verification,4,College of Engineering,"CMPSC 130A, CMPSC 130B, CMPSC 138"
+CMPSC 270,Operating Systems,4,College of Engineering,CMPSC 170
+CMPSC 271,Advanced Topics in Distributed Systems,4,College of Engineering,CMPSC 170
+CMPSC 272,Software Engineering,4,College of Engineering,
+CMPSC 273,Data and Knowledge Bases,4,College of Engineering,
+CMPSC 274,Advanced Topics in Database Systems,4,College of Engineering,CMPSC 170
+CMPSC 276,Advanced Topics in Networking,4,College of Engineering,"| CMPSC 176A, CMPSC 176B"
+CMPSC 279,Advanced Topics in Security,4,College of Engineering,CMPSC 177
+CMPSC 280,Computer Graphics,4,College of Engineering,CMPSC 180
+CMPSC 281,Advanced Topics in Computer Vision,4,College of Engineering,| CMPSC 181
+CMPSC 281B,Advanced Topics in Computer Vision,4,College of Engineering,| CMPSC 181
+CMPSC 284,Mobile Computing,4,College of Engineering,"| CMPSC 176A, CMPSC 176B"
+CMPSC 285,Advanced Image Synthesis,4,College of Engineering,
+CMPSC 291,"Special Topics in Computer Science, Applications",4,College of Engineering,
+CMPSC 291A,"Special Topics in Computer Science, Applications, General",4,College of Engineering,
+CMPSC 291D,"Special Topics in Computer Science, Applications, Database and Information Systems",4,College of Engineering,
+CMPSC 291G,"Special Topics in Computer Science, Applications, Security and Cryptography",4,College of Engineering,
+CMPSC 291H,"Special Topics in Computer Science, Applications, Computational Science and Engineering",4,College of Engineering,
+CMPSC 291I,"Special Topics in Computer Science, Applications, Visual Computing and Interaction",4,College of Engineering,
+CMPSC 291K,"Special Topics in Computer Science, Applications",4,College of Engineering,
+CMPSC 292,"Special Topics in Computer Science, Foundations",4,College of Engineering,
+CMPSC 292A,"Special Topics in Computer Science, Foundations, Algorithms",4,College of Engineering,
+CMPSC 292C,"Special Topics in Computer Science, Foundations, Programming Languages and Software Engineering",4,College of Engineering,
+CMPSC 292F,"Special Topics in Computer Science, Foundations, General",4,College of Engineering,
+CMPSC 292G,"Special Topics in Computer Science, Foundations",4,College of Engineering,
+CMPSC 292H,"Special Topics in Computer Science, Foundations, Computational Science and Engineering",4,College of Engineering,
+CMPSC 293,"Special Topics in Computer Science, Systems",4,College of Engineering,
+CMPSC 293A,"Special Topics in Computer Science, Systems",4,College of Engineering,
+CMPSC 293B,"Special Topics in Computer Science, Systems",4,College of Engineering,
+CMPSC 293C,"Special Topics in Computer Science, Systems, Programming Languages and Software Engineering",4,College of Engineering,
+CMPSC 293D,"Special Topics in Computer Science, Systems, Database and Information Systems",4,College of Engineering,
+CMPSC 293E,"Special Topics in Computer Science, Systems, Computer Architecture and Embedded Systems",4,College of Engineering,
+CMPSC 293G,"Special Topics in Computer Science, Systems, Security and Cryptography",4,College of Engineering,
+CMPSC 293K,"Special Topics in Computer Science, Systems, Machine Learning and Data Mining",4,College of Engineering,
+CMPSC 293N,"Special Topics in Computer Science, Systems",4,College of Engineering,
+CMPSC 293S,"Special Topics in Computer Science, Systems, General",4,College of Engineering,
+CMPSC 32,Object Oriented Design and Implementation,4,College of Engineering,CMPSC 24
+CMPSC 4,Computer Science Boot Camp,4,College of Engineering,
+CMPSC 40,Foundations of Computer Science,5,College of Engineering,"CMPSC 16, MATH 4A"
+CMPSC 501,Techniques of Computer Science Teaching,1,College of Engineering,
+CMPSC 502,Teaching of Computer Science,99,College of Engineering,CMPSC 501
+CMPSC 592,"Group Studies: Controls, Dynamical Systems, and Computation",1,College of Engineering,
+CMPSC 593,Computer Science Graduate Tutorial,99,College of Engineering,
+CMPSC 594,Seminar in Computer Science,99,College of Engineering,
+CMPSC 595,Group Studies in Computer Science,2,College of Engineering,
+CMPSC 595A,Group Studies in Computer Science: Foundations,2,College of Engineering,
+CMPSC 595B,Group Studies in Computer Science: Software Systems,2,College of Engineering,
+CMPSC 595C,Group Studies in Computer Science: Programming Languages and Software Engineering,2,College of Engineering,
+CMPSC 595D,Group Studies in Computer Science,2,College of Engineering,
+CMPSC 595E,Group Studies in Computer Science: Architecture,2,College of Engineering,
+CMPSC 595F,Group Studies in Computer Science: Networking,2,College of Engineering,
+CMPSC 595G,Group Studies in Computer Science: Security,2,College of Engineering,
+CMPSC 595H,Group Studies in Computer Science: Scientific Computing,2,College of Engineering,
+CMPSC 595I,Group Studies in Computer Science: Intelligent and Interactive Systems,2,College of Engineering,
+CMPSC 595J,Group Studies in Computer Science: General,2,College of Engineering,
+CMPSC 595K,Group Studies in Computer Science: Computer Systems Modeling and Analysis,2,College of Engineering,
+CMPSC 595L,Group Studies in Computer Science,2,College of Engineering,
+CMPSC 595N,Group Studies in Computer Science: Faculty Research Seminar,2,College of Engineering,
+CMPSC 595R,Group Studies in Computer Science,2,College of Engineering,
+CMPSC 596,Directed Research,99,College of Engineering,
+CMPSC 597,Individual Studies for Master of Science Comprehensive Examinations and Ph.D Examinations,99,College of Engineering,
+CMPSC 598,Master's Thesis Research and Preparation,99,College of Engineering,
+CMPSC 599,Ph.D. Dissertation Research and Preparation,99,College of Engineering,
+CMPSC 5A,Introduction to Data Science 1,4,College of Engineering,
+CMPSC 5B,Introduction to Data Science 2,4,College of Engineering,"| CMPSC 5A, CMPSC 8, ECE 3"
+CMPSC 64,Computer Organization and Logic Design,4,College of Engineering,"CMPSC 16 | MATH 3C, MATH 4A"
+CMPSC 8,Introduction to Computer Science,4,College of Engineering,
+CMPSC 9,Intermediate Python Programming,4,College of Engineering,"| CMPSC 8, CMPSC W8, ENGR 3, ENGR W3, ECE 3"
+CMPSC 90,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 90DA,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 90DB,Special Topics in Computer Science,4,College of Engineering,
+CMPSC 96,Undergraduate Research,12,College of Engineering,
+CMPSC 99,Independent Studies in Computer Science,30,College of Engineering,
+CMPSC W8,Introduction to Computer Science,4,College of Engineering,
+CMPSC W9,Intermediate Python Programming,4,College of Engineering,"| CMPSC 8, CMPSC W8, ENGR 3, ENGR W3, ECE 3"
+ECE 10A,Foundations of Analog and Digital Circuits & Systems,3,College of Engineering,"PHYS 3 | MATH 2A, MATH 2B, MATH 3A, MATH 3B, MATH 3AH, MATH 3BH; MATH 4A, MATH 4AI, MATH 3C; MATH 4B, MATH 4BI, MATH 5A"
+ECE 10AL,Foundations of Analog and Digital Circuits and Systems Lab,2,College of Engineering,| ECE 10A
+ECE 10B,Foundations of Analog and Digital Circuits and Systems,3,College of Engineering,| ECE 10A
+ECE 10BL,Foundations of Analog and Digital Circuits and Systems Lab,2,College of Engineering,| ECE 10B
+ECE 10C,Foundations of Analog and Digital Circuits and Systems,3,College of Engineering,| ECE 10B
+ECE 10CL,Foundations of Analog and Digital Circuits and Systems Lab,2,College of Engineering,| ECE 10C
+ECE 120A,Integrated Circuit Design and Fabrication,4,College of Engineering,ECE 132
+ECE 120B,Integrated Circuit Design and Fabrication,4,College of Engineering,"| ECE 120A, ECE 124B"
+ECE 122A,VLSI Principles,4,College of Engineering,ECE 152A
+ECE 122B,VLSI Architecture and Design,4,College of Engineering,"| ECE 124A, ECE 123, ECE 122A"
+ECE 123,High-Performance Digital Circuit Design,4,College of Engineering,"ECE 10A, ECE 10B, ECE 10C | ECE 10AL, ECE 10BL, ECE 10CL, ECE 2A, ECE 2B, ECE 2C"
+ECE 125,High Speed Digital Integrated Circuit Design,4,College of Engineering,"| ECE 124A, ECE 137A"
+ECE 130A,Signal Analysis and Processing,4,College of Engineering,"| MATH 4B, MATH 5A"
+ECE 130B,Signal Analysis and Processing,4,College of Engineering,ECE 130A
+ECE 130C,Introduction to Applied Linear Algebra,4,College of Engineering,"| MATH 4B, MATH 5A"
+ECE 132,Introduction to Solid-State Electronic Devices,4,College of Engineering,"MATH 4B | PHYS 4, PHYS 24, PHYS 7D"
+ECE 133,Introduction to Optimization and Learning,4,College of Engineering,
+ECE 134,Introduction to Fields and Waves,4,College of Engineering,"| PHYS 3, PHYS 23, PHYS 7B; PHYS 4, PHYS 24, PHYS 7C; MATH 4B, MATH 4BI, MATH 5A; MATH 5B, MATH 6A, MATH 6AI; MATH 5C, MATH 6B"
+ECE 135,Optical Fiber Communications,4,College of Engineering,"ECE 132, ECE 134"
+ECE 136A,Introduction to Optics and Photonics,4,College of Engineering,"| PHYS 5, PHYS 5L, PHYS 7D, PHYS 7L, PHYS 25"
+ECE 136B,Optics and Imaging,4,College of Engineering,"| PHYS 5, PHYS 5L, PHYS 7D, PHYS 7L, PHYS 25"
+ECE 136C,Quantum Photonics,4,College of Engineering,"| PHYS 5, PHYS 5L, PHYS 7D, PHYS 7L, PHYS 25"
+ECE 137A,Circuits and Electronics I,4,College of Engineering,"ECE 10A, ECE 10B, ECE 10C"
+ECE 137B,Circuits and Electronics II,4,College of Engineering,"ECE 10C, ECE 137A"
+ECE 139,Probability and Statistics,4,College of Engineering,
+ECE 141A,Introduction to Nanoelectromechanical and Microelectromechanical systems (NEMS/MEMS),3,College of Engineering,"| ME 16, ME W16; ME 152A, ME 151A, ECE 130A, ECE 137A"
+ECE 141B,MEMS: Processing and Device Characterization,4,College of Engineering,"| ME 141A, ECE 141A"
+ECE 142,INTRODUCTION TO POWER ELECTRONICS,4,College of Engineering,"ECE 132, ECE 134, ECE 137A"
+ECE 144,Electromagnetic Fields and Waves,4,College of Engineering,ECE 134
+ECE 145A,Communication Electronics,5,College of Engineering,"ECE 137A, ECE 137B"
+ECE 145B,Communication Electronics II,5,College of Engineering,ECE 145A
+ECE 145C,Communication Electronics III,5,College of Engineering,ECE 145B
+ECE 146A,Digital Communication Fundamentals,5,College of Engineering,"ECE 130A, ECE 130B | ECE 139, PSTAT 120A"
+ECE 146B,Wireless Communication Systems Design,5,College of Engineering,"ECE 130A, ECE 130B, ECE 146A | ECE 139, PSTAT 120A"
+ECE 147A,Feedback Control Systems - Theory and Design,5,College of Engineering,"ECE 130A, ECE 130B"
+ECE 147B,Digital Control Systems - Theory and Design,5,College of Engineering,ECE 147A
+ECE 147C,Control System Design Project,5,College of Engineering,"| ECE 147A, ME 155B, ME 173"
+ECE 148,Applications of Signal Analysis and Processing,4,College of Engineering,"ECE 130A, ECE 130B"
+ECE 149,Game Theory for Networked Systems,4,College of Engineering,
+ECE 150,MOBILE EMBEDDED SYSTEMS,4,College of Engineering,ECE 152A
+ECE 152A,Digital Design Principles,5,College of Engineering,"ECE 15A | ECE 2A, ECE 10A, ECE 10AL; ECE 15A, ECE 2A, ECE 10A, ECE 10AL, CMPSC 30, CMPSC 64"
+ECE 152B,Digital System Design,4,College of Engineering,ECE 152A
+ECE 153A,Hardware/Software Interface,4,College of Engineering,
+ECE 153B,Sensor and Peripheral Interface Design,4,College of Engineering,ECE 152A
+ECE 154A,Introduction to Computer Architecture,4,College of Engineering,ECE 152A
+ECE 154B,Advanced Computer Architecture,4,College of Engineering,| ECE 154A
+ECE 157A,Machine Learning in Design and Test Automation,4,College of Engineering,ECE 152A
+ECE 157B,Artificial Intelligence in Design and Test Automation,4,College of Engineering,ECE 157A
+ECE 157C,AI Agents for the Semiconductor Industry,4,College of Engineering,
+ECE 158,Digital Signal Processing,4,College of Engineering,"ECE 130A, ECE 130B"
+ECE 15A,Fundamentals of Logic Design,4,College of Engineering,
+ECE 160,Multimedia Systems,4,College of Engineering,
+ECE 162A,The Quantum Description of Electronic Materials,4,College of Engineering,"ECE 130A, ECE 130B, ECE 134"
+ECE 162B,Fundamentals of the Solid State,4,College of Engineering,ECE 162A
+ECE 162C,Optoelectronic Materials and Devices,4,College of Engineering,"ECE 162A, ECE 162B"
+ECE 178,Introduction to Digital Image and Video Processing,4,College of Engineering,
+ECE 179D,Introduction to Robotics: Dynamics and Control,4,College of Engineering,"| ECE 130A, ME 103"
+ECE 179P,Introduction to Robotics: Planning and Kinematics,4,College of Engineering,"ENGR 3 | ME 17, ECE 130C"
+ECE 180,INTRODUCTION TO DEEP LEARNING,4,College of Engineering,
+ECE 181,Introduction to Computer Vision,4,College of Engineering,
+ECE 183,Nonlinear Phenomena,4,College of Engineering,"| PHYS 105A, PHYS 103; PHYS 105A, PHYS 103, ME 163"
+ECE 184,Introduction to Video Game Development,5,College of Engineering,CMPSC 130A | CMPSC 130B
+ECE 186,Probabilistic Machine Learning,4,College of Engineering,"| ECE 139, PSTAT 120A"
+ECE 188A,Senior Electrical Engineering Project,4,College of Engineering,"ECE 153A | ECE 153A, ECE 153B"
+ECE 188B,Senior Electrical Engineering Project,4,College of Engineering,ECE 188A
+ECE 188C,Senior Electrical Engineering Project,4,College of Engineering,ECE 188B
+ECE 189A,Senior Computer Systems Project,4,College of Engineering,ECE 153B
+ECE 189B,Senior Computer Systems Project,4,College of Engineering,| ECE 189A
+ECE 189C,Senior Computer Systems Project,4,College of Engineering,| ECE 189B
+ECE 192,Projects in Electrical and Computer Engineering,4,College of Engineering,
+ECE 193,Internship in Industry,12,College of Engineering,
+ECE 194,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194A,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194AA,Micro-Electro-Mechanical Systems,99,College of Engineering,
+ECE 194B,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194BB,Computer Engineering,99,College of Engineering,
+ECE 194C,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194CC,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194D,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194E,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194F,Group Studies in Electrical and Computer Engineering: Solid State,5,College of Engineering,
+ECE 194G,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194M,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194N,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194O,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194P,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194Q,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194R,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194T,Group Studies in Electrical and Computer Engineering: Robot Control,5,College of Engineering,
+ECE 194U,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194V,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194W,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 194Z,Nanotechnology,99,College of Engineering,
+ECE 196,Undergraduate Research,12,College of Engineering,
+ECE 199,Independent Studies in Electrical and Computer Engineering,30,College of Engineering,
+ECE 1A,Computer Engineering Seminar,1,College of Engineering,
+ECE 1B,Ten Puzzling Problems in Computer Engineering,1,College of Engineering,
+ECE 201A,Electromagnetic Theory I,4,College of Engineering,ECE 144
+ECE 203,"THz Science, Technology, and Systems",4,College of Engineering,
+ECE 205,Information Theory,4,College of Engineering,"| ECE 139, PSTAT 120A, PSTAT 120B"
+ECE 210A,Matrix Analysis and Computation,4,College of Engineering,
+ECE 210B,Numerical Simulation,4,College of Engineering,
+ECE 210C,Numerical Solution of Partial Differential Equations--Finite Difference Methods,4,College of Engineering,
+ECE 210D,Numerical Solution of Partial Differential Equations--Finite Element Methods,4,College of Engineering,
+ECE 211A,Engineering Quantum Mechanics I,4,College of Engineering,"ECE 162A, ECE 162B"
+ECE 211B,Engineering Quantum Mechanics II,4,College of Engineering,"| ECE 211A, MATRL 211A, ECE 215A, MATRL 206A"
+ECE 215A,Fundamentals of Electronic Solids I,4,College of Engineering,"| ECE 162A, ECE 162B"
+ECE 215B,Fundamentals of Electronic Solids II,4,College of Engineering,"ECE 162A, ECE 162B"
+ECE 216,Defects in Semiconductors,3,College of Engineering,"ECE 162A, ECE 162B"
+ECE 217,Molecular Beam Epitaxy and Band Gap Engineering,3,College of Engineering,"| MATRL 162A, MATRL 162B, ECE 162A, ECE 162B"
+ECE 218A,Communication Electronics,5,College of Engineering,"ECE 137A, ECE 137B"
+ECE 218B,Communication Electronics II,5,College of Engineering,ECE 218A
+ECE 218C,Communication Electronics III,5,College of Engineering,ECE 218B
+ECE 219,CMOS & RF INTEGRATED CIRCUIT DESIGN,4,College of Engineering,"ECE 137A, ECE 137B"
+ECE 220A,Semiconductor Device Processing,4,College of Engineering,ECE 132
+ECE 220B,Semiconductor Device Processing,4,College of Engineering,ECE 220A
+ECE 220C,Semiconductor Device Processing,4,College of Engineering,ECE 220A
+ECE 221A,Semiconductor Device Physics I,4,College of Engineering,"ECE 132, ECE 162A, ECE 162B"
+ECE 221B,Semiconductor Device Physics II,4,College of Engineering,"ECE 215A, ECE 221A"
+ECE 223,High-Performance Digital Circuit Design,4,College of Engineering,"ECE 2A, ECE 2B, ECE 2C"
+ECE 224A,VLSI Project Design,4,College of Engineering,"ECE 124A | ECE 124D, ECE 256C"
+ECE 225,High Speed Digital Integrated Circuit Design,4,College of Engineering,"| ECE 124A, ECE 137A"
+ECE 226,Level Set Methods,4,College of Engineering,"| CMPSC 211C, CH E 211C, ECE 210C, ME 210C"
+ECE 227A,Semiconductor Lasers I,4,College of Engineering,"| ECE 162A, ECE 162B, ECE 162C, MATRL 162A, MATRL 162B; ECE 162C, ECE 144"
+ECE 227B,Semiconductor Lasers II,4,College of Engineering,"| ECE 227A, MATRL 268A, ECE 215A, MATRL 206A"
+ECE 227C,Photonic Integrated Circuits,4,College of Engineering,"ECE 227A, ECE 227B"
+ECE 228A,Fiber Optic Communications,4,College of Engineering,"ECE 162A, ECE 162B, ECE 162C, ECE 144, ECE 135"
+ECE 228B,Fiber Optic Components and Systems,4,College of Engineering,ECE 228A
+ECE 228C,"Optical Circuits, Systems and Networks",4,College of Engineering,"ECE 228A, ECE 228B"
+ECE 229,Hybrid Systems,4,College of Engineering,
+ECE 230A,Linear Systems I,4,College of Engineering,"ME 210A, ECE 210A, CH E 211A | CMPSC 211A, MATH 206A"
+ECE 230B,Linear Systems II,4,College of Engineering,"ME 210A, ECE 210A, CH E 211A | ECE 230A, ME 243A; CMPSC 211A, MATH 206A"
+ECE 231,Algorithmic Game Theory,4,College of Engineering,"| ECE 149, ECE 270"
+ECE 232,Robust Control Theory,4,College of Engineering,"| ECE 230A, ME 243A; ECE 230B, ME 243B"
+ECE 234,"Modeling, Identification, and Validation for Control",4,College of Engineering,ECE 230A
+ECE 235,Stochastic Processes in Engineering,4,College of Engineering,ECE 139
+ECE 236,Nonlinear Control Systems,4,College of Engineering,
+ECE 238,Advanced Control Design Laboratory,4,College of Engineering,"| ME 243A, ECE 230A; ME 243B, ECE 230B, ME 236, ECE 236, ME 256, ECE 232, ME 254, ECE 271C"
+ECE 240,Optimal Estimation and Filtering,4,College of Engineering,ECE 139
+ECE 241,Multimedia Compression,4,College of Engineering,ECE 139
+ECE 242,Digital Signal Compression,4,College of Engineering,"| ECE 139, ECE 235"
+ECE 243A,Digital Communication Theory,4,College of Engineering,ECE 146B
+ECE 243B,Advanced Digital Communication Theory,4,College of Engineering,ECE 243A
+ECE 245,Adaptive Algorithms for Data Analysis and Modeling,4,College of Engineering,ECE 139
+ECE 250,Wireless Communication and Networking,4,College of Engineering,ECE 146A
+ECE 251,MOBILE EMBEDDED SYSTEMS,4,College of Engineering,ECE 152A
+ECE 252B,Computer Arithmetic,4,College of Engineering,"ECE 152A, ECE 152B"
+ECE 253,Embedded System Design,4,College of Engineering,
+ECE 254A,Advanced Computer Architecture: Processor Design,4,College of Engineering,ECE 154
+ECE 254B,Advanced Computer Architecture: Parallel Processing,4,College of Engineering,"| ECE 254A, ECE 154B"
+ECE 254C,Advanced Computer Architecture: Distributed Systems,4,College of Engineering,ECE 254A
+ECE 254D,ADVANCED COMPUTER ARCHITECTURE: MEMORY-CENTRIC COMPUTING,4,College of Engineering,"ECE 154A, ECE 154B"
+ECE 255A,VLSI Testing Techniques,4,College of Engineering,ECE 152A
+ECE 255B,VLSI Design Validation,4,College of Engineering,ECE 255A
+ECE 256A,Introduction to Design Automation,4,College of Engineering,
+ECE 256C,Advanced VLSI Architecture and Design,4,College of Engineering,"| ECE 124A, ECE 256A, ECE 256B"
+ECE 256D,Algorithmic Logic Synthesis,4,College of Engineering,ECE 15A
+ECE 257A,Fault Tolerant Computing,4,College of Engineering,"ECE 152A, ECE 152B"
+ECE 258,Multirate Digital Signal Processing,4,College of Engineering,ECE 158
+ECE 259A,Digital Speech Processing,4,College of Engineering,"| ECE 158, ECE 242"
+ECE 259B,Fundamentals of Speech Recognition,4,College of Engineering,ECE 158
+ECE 260A,Principles of Quantum Electronics,4,College of Engineering,"| ECE 144, ECE 162C"
+ECE 261,INTRODUCTION TO NANOPHOTONICS,4,College of Engineering,
+ECE 262,Physics of Solar Cells,4,College of Engineering,
+ECE 265,ELECTRONIC AND PHOTONIC INTEGRATION AND PACKAGING,4,College of Engineering,ECE 221A | ECE 227A; ECE 228A
+ECE 267,Confined Electrons and Photons in Semiconductor Structures,3,College of Engineering,"| MATRL 162A, MATRL 162B, ECE 162A, ECE 162B"
+ECE 269,Network Systems: Dynamics and Control,4,College of Engineering,
+ECE 270,NONCOOPERATIVE GAME THEORY,4,College of Engineering,
+ECE 271A,Principles of Optimization,4,College of Engineering,ECE 210A
+ECE 271C,Optimal Control of Dynamic Systems,4,College of Engineering,"| ECE 230A, ME 243A"
+ECE 272A,Machine Learning in Design and Test Automation,4,College of Engineering,ECE 152A
+ECE 272B,Artificial Intelligence in Design and Test Automation,4,College of Engineering,ECE 272A
+ECE 272C,AI Agents for the Semiconductor Industry,4,College of Engineering,"ECE 272A, ECE 272B"
+ECE 273,TENSOR COMPUTATION FOR MACHINE LEARNING AND BIG DATA,4,College of Engineering,
+ECE 274,Neurally Inspired Computing Systems,4,College of Engineering,
+ECE 275,From Statistical Mechanics to Quantum Computing: A Unified View,4,College of Engineering,
+ECE 276,"Geometric AI: Equivariant, Topological and Geometric Deep Learning",4,College of Engineering,
+ECE 277,Pattern Recognition,4,College of Engineering,"ECE 130C, ECE 139"
+ECE 278A,Digital Image Processing,4,College of Engineering,"| ECE 158, ECE 178"
+ECE 278B,Principles of Biological Microscopy,4,College of Engineering,"| ECE 158, ECE 178"
+ECE 278C,Imaging Systems,4,College of Engineering,"ECE 158, ECE 178"
+ECE 279,Computer System Performance Evaluation,4,College of Engineering,"ECE 139, ECE 154A, CMPSC 170"
+ECE 281,Advanced Topics in Computer Vision,4,College of Engineering,| CMPSC 181
+ECE 281B,Advanced Topics in Computer Vision,4,College of Engineering,| CMPSC 181
+ECE 282,Error Correcting Codes,4,College of Engineering,"| ECE 130C, ECE 139"
+ECE 283,MACHINE LEARNING: A SIGNAL PROCESSING PERSPECTIVE,4,College of Engineering,ECE 235
+ECE 284,THEORETICAL MACHINE LEARNING,4,College of Engineering,ECE 235
+ECE 285,ADVANCED IMAGE SYNTHESIS,4,College of Engineering,
+ECE 289,INTRODUCTION TO ROBOTICS: DYNAMICS AND CONTROL,5,College of Engineering,"| ECE 130A, ME 155A"
+ECE 295,"Group Studies: Controls, Dynamical Systems, and Computation",1,College of Engineering,
+ECE 3,Introduction to Python Programming For Engineers,4,College of Engineering,
+ECE 493,Internship in Industry,99,College of Engineering,
+ECE 5,Introduction to Electrical & Computer Engineering,4,College of Engineering,
+ECE 502,Teaching of Electrical and Computer Engineering,99,College of Engineering,
+ECE 594,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594A,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594AA,Micro-Electro-Mechanical Systems,99,College of Engineering,
+ECE 594B,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594BB,Computer Engineering,99,College of Engineering,
+ECE 594C,Special Topics in Electrical and Computer Engineering,5,College of Engineering,
+ECE 594CC,Special Topics in ECE Photonics,99,College of Engineering,
+ECE 594D,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594E,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594F,Special Topics in Electrical and Computer Engineering,5,College of Engineering,
+ECE 594I,Special Topics in Electrical and Computer Engineering,5,College of Engineering,
+ECE 594N,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594Q,Special Topics in Electrical and Computer Engineering: Imaging Systems and Image Processing,5,College of Engineering,
+ECE 594T,Special Topics in Electrical and Computer Engineering,5,College of Engineering,
+ECE 594U,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594V,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594W,Special Topics in Electrical and Computer Engineering,99,College of Engineering,
+ECE 594Z,Nanotechnology,99,College of Engineering,
+ECE 595,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595B,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595C,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595E,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595F,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595G,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595GP,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595H,Special Topics in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595I,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595K,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595L,Special Topics in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595O,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595Q,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595R,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595S,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595T,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595U,Group Studies in Electrical and Computer Engineering: Scientific Computation,1,College of Engineering,
+ECE 595V,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595W,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 595X,Group Studies in Electrical and Computer Engineering,1,College of Engineering,
+ECE 596,Directed Research,99,College of Engineering,
+ECE 597,Individual Studies for M.S. Comprehensive Examinations and Ph.D. Examinations,99,College of Engineering,
+ECE 598,Master's Thesis Research and Preparation,99,College of Engineering,
+ECE 599,Ph.D. Dissertation Research and Preparation,99,College of Engineering,
+ECE 6,"The Physics of Energy, Information, and Communication",4,College of Engineering,
+ECE 92,Projects in Electrical and Computer Engineering,4,College of Engineering,
+ECE 94,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 94A,Circuits,99,College of Engineering,
+ECE 94AA,Micro-electro-mechanical-systems,99,College of Engineering,
+ECE 94B,Systems Theory,99,College of Engineering,
+ECE 94BB,Computer Engineering,99,College of Engineering,
+ECE 94C,Communications Systems,99,College of Engineering,
+ECE 94CC,Group Studies in Electrical and Computer Engineering,99,College of Engineering,
+ECE 94D,Control Systems,99,College of Engineering,
+ECE 94E,Signal Processing,99,College of Engineering,
+ECE 94F,Solid State,99,College of Engineering,
+ECE 94G,Fields and Waves,99,College of Engineering,
+ECE 94H,Quantum Electronics,99,College of Engineering,
+ECE 94I,Microwave Electronics,99,College of Engineering,
+ECE 94J,Switching Theory,99,College of Engineering,
+ECE 94K,Digital Systems Design,99,College of Engineering,
+ECE 94L,Computer Architecture,99,College of Engineering,
+ECE 94M,Computer Graphics,99,College of Engineering,
+ECE 94N,Pattern Recognition,99,College of Engineering,
+ECE 94O,Microprocessors and Microprocessor-based systems,99,College of Engineering,
+ECE 94P,Simulation,99,College of Engineering,
+ECE 94Q,Imaging Systems and Image Processing,99,College of Engineering,
+ECE 94R,General,99,College of Engineering,
+ECE 94S,Speech,99,College of Engineering,
+ECE 94T,Robot Control,99,College of Engineering,
+ECE 94U,Optoelectronics,99,College of Engineering,
+ECE 94V,Scientific Computation,99,College of Engineering,
+ECE 94W,Computer Network,99,College of Engineering,
+ECE 94X,Distributed Computation,99,College of Engineering,
+ECE 94Y,Numerical Differential Equations,99,College of Engineering,
+ECE 94Z,Nanotechnology,99,College of Engineering,
+ECE 96,Undergraduate Research,12,College of Engineering,
+ENGR 101,Ethics in Engineering,3,College of Engineering,
+ENGR 103,Advanced Engineering Writing,4,College of Engineering,"| WRIT 50, WRIT 50E"
+ENGR 10H,Engineering Honors Seminar,1,College of Engineering,
+ENGR 13A,"Integrated Networking, Scholarship, and Peer Interaction for eaRly Engineers (INSPIRE) Seminar",1,College of Engineering,
+ENGR 13B,"Integrated Networking, Scholarship, and Peer Interaction for eaRly Engineers (INSPIRE) Seminar",1,College of Engineering,ENGR 13A
+ENGR 177,Art and Science of Aerospace Culture,4,College of Engineering,
+ENGR 195A,Multidisciplinary Capstone Design,1,College of Engineering,
+ENGR 195B,Multidisciplinary Capstone Design,1,College of Engineering,ENGR 195A
+ENGR 195C,Multidisciplinary Capstone Design,1,College of Engineering,ENGR 195B
+ENGR 199,Independent Studies in Engineering,10,College of Engineering,
+ENGR 220C,Tissue & Systems Bioengineering,4,College of Engineering,ENGR 220B
+ENGR 3,Introduction to Programming,3,College of Engineering,
+ENGR 99,Introduction to Research,6,College of Engineering,
+ENGR W3,Introduction to Programming,3,College of Engineering,
+MATRL 10,"Materials in Society, The Stuff of Dreams",4,College of Engineering,
+MATRL 100A,Structure and Properties I,3,College of Engineering,"CHEM 1A, CHEM 1B, MATH 4B, MATH 6A, MATH 6B"
+MATRL 100B,Structures and Properties II,3,College of Engineering,MATRL 100A
+MATRL 100C,Fundamentals of Structural Evolution,3,College of Engineering,"MATRL 100A, MATRL 100B"
+MATRL 101,Introduction to the Structure and Properties of Materials,3,College of Engineering,
+MATRL 135,Biophysics and Biomolecular Materials,3,College of Engineering,"| PHYS 5, PHYS 6C, PHYS 25"
+MATRL 160,Introduction to Polymer Science,3,College of Engineering,"| CH E 110A, CHEM 113A"
+MATRL 162A,The Quantum Description of Electronic Materials,4,College of Engineering,"ECE 130A, ECE 130B, ECE 134"
+MATRL 162B,Fundamentals of the Solid State,4,College of Engineering,ECE 162A
+MATRL 185,Materials in Engineering,3,College of Engineering,"| MATRL 100B, MATRL 101"
+MATRL 186A,Manufacturing and Materials,3,College of Engineering,"ME 151C, ME 15 | MATRL 101, MATRL 100C"
+MATRL 186B,Introduction to Additive Manufacturing,3,College of Engineering,
+MATRL 188,Topics In Materials,2,College of Engineering,
+MATRL 200A,Thermodynamic Foundation of Materials,4,College of Engineering,
+MATRL 200B,Electronic and Atomic Structure of Materials,4,College of Engineering,
+MATRL 200C,Structure Evolution,4,College of Engineering,
+MATRL 200Q,Introduction to Quantum Mechanics for Materials,3,College of Engineering,
+MATRL 200S,Introduction to Structure and Phase Stability,3,College of Engineering,
+MATRL 204,Introduction to Magnetism and Magnetic Materials,3,College of Engineering,
+MATRL 205,Wide-Band Gap Materials and Devices,3,College of Engineering,
+MATRL 206A,Fundamentals of Electronic Solids I,4,College of Engineering,"ECE 162A, ECE 162B"
+MATRL 206B,Fundamentals of Electronic Solids II,4,College of Engineering,"ECE 162A, ECE 162B"
+MATRL 207,Mechanics of Materials,3,College of Engineering,
+MATRL 209A,Crystallography and Diffraction Fundamentals,3,College of Engineering,
+MATRL 209B,X-Ray Diffraction II: Advanced Methods,3,College of Engineering,
+MATRL 209C,Electron Microscopy II: Crystalline Materials,3,College of Engineering,
+MATRL 211A,Engineering Quantum Mechanics I,4,College of Engineering,"ECE 162A, ECE 162B"
+MATRL 211B,Engineering Quantum Mechanics II,4,College of Engineering,"| ECE 211A, MATRL 211A, ECE 215A, MATRL 206A"
+MATRL 214,Advanced Topics in Equilibrium Statistical Mechanics,3,College of Engineering,
+MATRL 215A,Semiconductor Device Processing,4,College of Engineering,ECE 132
+MATRL 215B,Semiconductor Device Processing,4,College of Engineering,MATRL 215A
+MATRL 215C,Semiconductor Device Processing,4,College of Engineering,MATRL 215A
+MATRL 216,Defects in Semiconductors,3,College of Engineering,"ECE 162A, ECE 162B"
+MATRL 217,Molecular Beam Epitaxy and Band Gap Engineering,3,College of Engineering,"| MATRL 162A, MATRL 162B, ECE 162A, ECE 162B"
+MATRL 218,Introduction to Inorganic Materials,3,College of Engineering,
+MATRL 219,Phase Transformations,3,College of Engineering,
+MATRL 220,Mechanical Behavior of Materials,3,College of Engineering,MATRL 207
+MATRL 222A,Colloids and Interfaces I,3,College of Engineering,
+MATRL 222B,Colloids and Interfaces II,3,College of Engineering,
+MATRL 226,Symmetry and Tensor Properties of Materials,3,College of Engineering,
+MATRL 227,Metal-Organic Chemical Vapor Deposition,3,College of Engineering,
+MATRL 228,Computational Materials,3,College of Engineering,
+MATRL 230,Elasticity and Plasticity,3,College of Engineering,"| MATRL 207, ME 219"
+MATRL 232,Plasticity,3,College of Engineering,MATRL 207
+MATRL 234,Fracture Mechanics,3,College of Engineering,MATRL 207
+MATRL 238A,Rheology of Complex Fluids,3,College of Engineering,
+MATRL 240,Finite Element Structural Analysis,3,College of Engineering,MATRL 207
+MATRL 241,Structural Inorganic Chemistry,3,College of Engineering,"CHEM 173A, CHEM 173B, CHEM 175"
+MATRL 242,Symmetries and Group Theory,3,College of Engineering,
+MATRL 245,Electrochemistry and Electrochemical Methods,3,College of Engineering,
+MATRL 251,Processing of Inorganic Materials,3,College of Engineering,
+MATRL 253,Liquid Crystal Materials,4,College of Engineering,
+MATRL 261,Composite Materials,3,College of Engineering,MATRL 207
+MATRL 263,Thin Films and Multilayers,3,College of Engineering,"MATRL 207, ME 219"
+MATRL 264,Hydrogen in Materials,3,College of Engineering,
+MATRL 268A,Semiconductor Lasers I,4,College of Engineering,"| ECE 162A, ECE 162B, ECE 162C, MATRL 162A, MATRL 162B; MATRL 162A, MATRL 162B, ECE 162C, ECE 144"
+MATRL 268B,Semiconductor Lasers II,4,College of Engineering,"| ECE 227A, MATRL 268A; ECE 227A, MATRL 268A, ECE 215A, MATRL 206A"
+MATRL 270,Biomaterials and Biosurfaces,3,College of Engineering,
+MATRL 271A,Synthesis and Properties of Macromolecules,3,College of Engineering,
+MATRL 271B,Structure and Characterization of Complex Fluids,3,College of Engineering,
+MATRL 271C,Properties of Macromolecules,3,College of Engineering,
+MATRL 273,Experiments in Macromolecular Materials,3,College of Engineering,
+MATRL 274,Solid State Inorganic Materials,3,College of Engineering,"CHEM 173A, CHEM 173B"
+MATRL 275,Electrostatics of Biopolymers,2,College of Engineering,
+MATRL 276A,Biomolecular Materials I: Structure and Function,3,College of Engineering,
+MATRL 276B,Biomolecular Materials II: Applications,3,College of Engineering,
+MATRL 278,Interaction in Biomolecular Complexes,3,College of Engineering,
+MATRL 279,First-Principles Calculations for Materials,3,College of Engineering,
+MATRL 280A,Synthesis and Electronic Structures of Conjugated Polymers,3,College of Engineering,
+MATRL 281,Technical Communication and Presentation Design,3,College of Engineering,
+MATRL 284,Synthetic Chemistry of Macromolecules,3,College of Engineering,
+MATRL 286,Special Topics in Inorganic Materials,3,College of Engineering,
+MATRL 286B,Special Topics in Inorganic Materials,3,College of Engineering,
+MATRL 286C,In Situ/ In Operando Methods for Materials Science Research,3,College of Engineering,
+MATRL 286D,Advanced TEM,3,College of Engineering,
+MATRL 286E,Electrochemistry and Electrochemical Methods,3,College of Engineering,
+MATRL 286F,Symmetries and Group Theory,3,College of Engineering,
+MATRL 286G,Structural Families of Functional Inorganic Materials,3,College of Engineering,
+MATRL 286H, Fundamental and Applied Concepts in Ceramics for Electrochemical Technologies,3,College of Engineering,
+MATRL 286I,Special Topics in Inorganic Materials,3,College of Engineering,
+MATRL 286J,Optical Characterization of Materials,3,College of Engineering,
+MATRL 286K,Non-Metal to Metal Transitions,3,College of Engineering,
+MATRL 286L,Magnetism and Magnetic Phase Behavior in Solid State Materials,3,College of Engineering,
+MATRL 286M,Experiments in Inorganic Materials,3,College of Engineering,
+MATRL 286N,Functional Inorganic Oxides,3,College of Engineering,
+MATRL 286P,Special Topics in Inorganic Materials,3,College of Engineering,
+MATRL 286Q,Topics in Quantum Materials Measurement,3,College of Engineering,
+MATRL 286QQ,Quantum Phenomena in Mesoscopic Materials and Devices,3,College of Engineering,
+MATRL 286R,Theoretical Foundations of Quantum Materials,3,College of Engineering,
+MATRL 286S,Advanced Solid State Physics,3,College of Engineering,
+MATRL 286T,Topological Band Theory,3,College of Engineering,
+MATRL 286V,Special Topics in Inorganic Materials,3,College of Engineering,
+MATRL 286W,The Art of Scientific Writing,3,College of Engineering,
+MATRL 286Z,Solid State Ionics and Electrochem Devices,3,College of Engineering,
+MATRL 287,Special Topics in Macromolecular Materials,3,College of Engineering,
+MATRL 287A,Structure and Symmetry,3,College of Engineering,
+MATRL 287B,Electrostatics in Polar Solvents,3,College of Engineering,
+MATRL 287C,Soft Matter Mechanics,3,College of Engineering,
+MATRL 287D,Special Topics in Macromolecular Materials,3,College of Engineering,
+MATRL 287E,Special Topics in Macromolecular Materials,3,College of Engineering,
+MATRL 287F,Special Topics in Macromolecular Materials,3,College of Engineering,
+MATRL 287G,Special Topics in Macromolecular Materials,3,College of Engineering,
+MATRL 287H,Special Topics in Macromolecular Materials,3,College of Engineering,
+MATRL 287X,Sustainability in Materials Science,3,College of Engineering,
+MATRL 288,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288A,Special Topics in Materials for Quantum Information Science,3,College of Engineering,
+MATRL 288C,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288D,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288DD,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288E,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288F,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288G,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288H,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288I,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288J,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288K,Power Semiconductor Materials and Devices,3,College of Engineering,
+MATRL 288L,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288M,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288N,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288O,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288P,Thin Film and Amorphous Semiconductors,3,College of Engineering,
+MATRL 288V,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 288X,Special Topics in Electronic Materials,3,College of Engineering,
+MATRL 289,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289A,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289B,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289C,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289D,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289E,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289F,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289G,Phase Stability & Microstructure Evolution,3,College of Engineering,
+MATRL 289H,Statistical Mechanics of Crystalline Solids,3,College of Engineering,
+MATRL 289I,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289J,Crystal Growth and Solidification,3,College of Engineering,
+MATRL 289JK,Special Topics in Structural Materials,3,College of Engineering,
+MATRL 289L,Topics in Engineering Leadership,3,College of Engineering,
+MATRL 289LM,Dislocations and Dislocation Dynamics,3,College of Engineering,
+MATRL 289M,Machine Learning for Materials Science,3,College of Engineering,
+MATRL 289N,Introduction of nano- and micro-machining,3,College of Engineering,
+MATRL 289O,Additive Manufacturing,3,College of Engineering,
+MATRL 289P,Alloy Systems and Design,3,College of Engineering,
+MATRL 289Q,Micromechanics,3,College of Engineering,
+MATRL 289X,Dynamic Mechanical Behavior,3,College of Engineering,
+MATRL 290,Research Group Studies,99,College of Engineering,
+MATRL 493,Internship in Industry,99,College of Engineering,
+MATRL 501,Teaching Assistant Practicum,99,College of Engineering,
+MATRL 596,Directed Reading and Research,99,College of Engineering,
+MATRL 598,Master's Thesis Research and Preparation,99,College of Engineering,
+MATRL 599,Ph.D. Dissertation Research and Preparation,99,College of Engineering,
+ME 10,"Engineering Graphics: Sketching, CAD and Conceptual Design",4,College of Engineering,
+ME 100,Professional Seminar,1,College of Engineering,
+ME 102,Finite Elements Analysis of Heat Transfer and Fluid Flow with COMSOL,3,College of Engineering,"ME 151B, ME 152A"
+ME 103,Dynamical Systems,4,College of Engineering,"MATH 6B, ME 16"
+ME 104,Mechatronics,4,College of Engineering,"ME 6, ME 103"
+ME 105,Mechanical Engineering Laboratory,4,College of Engineering,"ME 151B, ME 152A, ME 103 | MATRL 101, MATRL 100C"
+ME 106A,Advanced Mechanical Engineering Laboratory,3,College of Engineering,ME 155A
+ME 107,Machine Learning,3,College of Engineering,ME 17
+ME 108,Applications of Finite Element Analysis,3,College of Engineering,"ME 14, ME 15"
+ME 11,Introductory Concepts in Mechanical Engineering,1,College of Engineering,
+ME 110,Aerodynamics and Aeronautical Engineering,3,College of Engineering,"ME 14, ME 152A"
+ME 112,Energy,3,College of Engineering,
+ME 12,Manufacturing Processes,1,College of Engineering,
+ME 124,Advanced Topics in Transport Phenomena/Safety,3,College of Engineering,"| CH E 120A, CH E 120B, CH E 120C, ME 151A, ME 151B, ME 152A"
+ME 125,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125A,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AA,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AB,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AC,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AD,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AE,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AF,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AG,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AH,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AI,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AJ,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AK,Special Topics in Mechanical Engineering,12,College of Engineering,
+ME 125AL,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AM,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AO,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AP,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125AQ,Special Topics in Mechanical Engineering,12,College of Engineering,
+ME 125AR,Special Topics in Mechanical Engineering,12,College of Engineering,
+ME 125AS,Special Topics: Introduction to Multiphase Flow,3,College of Engineering,
+ME 125B,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125BA,Special Topics in Mechanical Engineering,12,College of Engineering,
+ME 125BE,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125BP,Special Topics: Methods in Mechanobiology,3,College of Engineering,
+ME 125C,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125CP,Special Topics in Mechanical Engineering: Individual COMSOL projects in Thermal and Fluid Sciences,3,College of Engineering,
+ME 125D,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125E,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125ED,Special Topics in ME: Bio-Inspired Design in Fluid Mechanics,3,College of Engineering,
+ME 125EH,Special Topics in Soft Robotics,3,College of Engineering,
+ME 125EM,Special Topics in Mechanical Engineering: Finite Element Analysis of Heat Transfer and Fluid Flow,3,College of Engineering,
+ME 125ES,Special Topics in ME: Energy Storage Technologies,3,College of Engineering,
+ME 125EY,Special Topics in Biological Computing,3,College of Engineering,
+ME 125F,Special Topics: Hydrodynamic Instability and Turbulence,3,College of Engineering,
+ME 125FA,Special Topics: Failure Analysis,3,College of Engineering,
+ME 125FB,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125FM,Fluid Mechanics and Soft Matter in Additive Manufacturing,3,College of Engineering,
+ME 125G,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125H,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125I,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125IB,Special Topics: Failure- Why Defects Are Essential to Material Science,3,College of Engineering,
+ME 125J,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125JS,Special Topics: Li Ion Batteries,3,College of Engineering,
+ME 125K,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125KF,Special Topics in ME: Design and Construction of Scientific Apparatus,3,College of Engineering,
+ME 125KT,Special Topics in Mechanical Engineering: Advanced Dynamics,3,College of Engineering,
+ME 125L,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125LF,Special Topics: Vortex Dynamics and Turbulence,3,College of Engineering,
+ME 125LP,Special Topics in Mechanical Engineering: Intro to Design Optimization,3,College of Engineering,
+ME 125M,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125MB,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125MC,Special Topics: MEMS Characterization,3,College of Engineering,
+ME 125ML,Special Topics in ME: Research Topics in Machine Learning and System Identification,3,College of Engineering,
+ME 125MS,Special Topics in Mechanical Engineering- Rapid Prototyping Design: Advanced CAD and 3D Printing,3,College of Engineering,
+ME 125MV,Engineering Approaches to Solve Wicked Problems and Global Challenges,3,College of Engineering,
+ME 125N,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125OK,Soft mechanics: Design and Applications,3,College of Engineering,
+ME 125P,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125PL,Special Topics in Mechanical Engineering: Wind and Tidal Extraction Over Large Scales,3,College of Engineering,
+ME 125Q,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125R,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125RA,Special Topics in Mechanical Engineering: Radiative Energy Transfer,3,College of Engineering,
+ME 125RM,Chemo-Mechanics: The Intersection of Solid Mechanics and Chemistry,3,College of Engineering,
+ME 125RS,Special Topics: Engineering Biomaterials,3,College of Engineering,
+ME 125SD,Special Topics: Mechanics and Measurements,3,College of Engineering,
+ME 125T,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125TB,Special Topics in Mechanical Engineering: Waves and Flow,3,College of Engineering,
+ME 125TD,Advanced Engineering Thermodynamics,3,College of Engineering,
+ME 125TM,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125V,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125WY,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125X,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125Y,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 125YV,Special Topics: Vehicle Dynamics,3,College of Engineering,
+ME 125YZ,Special Topics in Mechanical Engineering: Introduction to interfacial phenomena,3,College of Engineering,
+ME 125Z,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 127,Introduction to Mechanisms,3,College of Engineering,"| ME 16, ME W16"
+ME 128,Design of Biomedical Devices,3,College of Engineering,ME 10 | ME W16
+ME 129,Manufacturing and Geometric Dimensioning and Tolerancing,3,College of Engineering,
+ME 12S,Introduction to Machine Shop,1,College of Engineering,
+ME 13,Leadership and Equitable Resources,1,College of Engineering,
+ME 133,Renewable Energy Technologies,3,College of Engineering,
+ME 134,Projects in Thermal Sciences,3,College of Engineering,
+ME 135,Wind and Tidal Energy,3,College of Engineering,ME 152A
+ME 14,Statics,4,College of Engineering,"| MATH 2B, MATH 3B, MATH 5, MATH 3; PHYS 7A, PHYS 1"
+ME 140A,Numerical Analysis in Engineering,3,College of Engineering,"| ME 17, CH E 132A"
+ME 140B,Theoretical Analysis in Mechanical Engineering,3,College of Engineering,ME 140A
+ME 141A,Introduction to Nanoelectromechanical and Microelectromechanical systems (NEMS/MEMS),3,College of Engineering,"| ME 16, ME W16; ME 152A, ME 151A, ECE 130A, ECE 137A"
+ME 141B,MEMS: Processing and Device Characterization,4,College of Engineering,"| ME 141A, ECE 141A"
+ME 146,Molecular and Cellular Biomechanics,3,College of Engineering,
+ME 147,Mechatronics Using Labview,3,College of Engineering,"ENGR 3, ME 6"
+ME 15,Strength of Materials,4,College of Engineering,ME 14
+ME 151A,Thermosciences 1,4,College of Engineering,"ME 14 | PHYS 7D, PHYS 2; MATH 6B, MATH 5C"
+ME 151B,Thermosciences 2,4,College of Engineering,"ME 151A, ME 152A"
+ME 151C,Thermosciences 3,3,College of Engineering,"ME 151B, ME 152A"
+ME 152A,Fluid Mechanics,4,College of Engineering,"| MATH 6B, MATH 5C; ME 16, ME W16; PHYS 7B, PHYS 2"
+ME 152B,Fluid Mechanics,3,College of Engineering,ME 152A
+ME 153,Introduction to Mechanical Engineering Design,3,College of Engineering,ME 10 | ME W16
+ME 154,Design and Analysis of Structures,3,College of Engineering,"ME 15 | ME 16, ME W16"
+ME 155A,Control System Design,3,College of Engineering,"ME 17, ME 103"
+ME 155B,Advanced Control Systems Design,3,College of Engineering,ME 155A
+ME 155C,Control Systems Laboratory,3,College of Engineering,ME 155A
+ME 156A,Mechanical Engineering Design - I,3,College of Engineering,"ME 14, ME 15 | MATRL 101, MATRL 100B"
+ME 156B,Mechanical Engineering Design-II,3,College of Engineering,ME 156A
+ME 157,Introduction to Multiphysics Simulation,3,College of Engineering,"ME 151A, ME 151B, ME 152A, ME 152B"
+ME 158,Computer Aided Design and Manufacturing,3,College of Engineering,"ME 10, ME 12S"
+ME 159,Introduction to Design Optimization,3,College of Engineering,
+ME 16,Engineering Mechanics: Dynamics,4,College of Engineering,"ME 14 | PHYS 7A, PHYS 2; MATH 6B, MATH 5C"
+ME 162,Introduction to Elasticity,3,College of Engineering,"ME 15, ME 140A"
+ME 163,Engineering Mechanics: Vibrations,3,College of Engineering,"ME 103 | ME 16, ME W16"
+ME 166,Advanced Strength of Materials,3,College of Engineering,ME 15
+ME 167,Structural Analysis,3,College of Engineering,ME 15
+ME 169,Nonlinear Phenomena,4,College of Engineering,"| PHYS 105A, PHYS 103; PHYS 105A, PHYS 103, ME 163"
+ME 17,Mathematics of Engineering,3,College of Engineering,ENGR 3
+ME 179D,Introduction to Robotics: Dynamics and Control,4,College of Engineering,"| ECE 130A, ME 103"
+ME 179L,Introduction to Robotics: Design Laboratory,4,College of Engineering,"ENGR 3 | ME 6, ECE 2A"
+ME 179P,Introduction to Robotics: Planning and Kinematics,4,College of Engineering,"ENGR 3 | ME 17, ECE 130C"
+ME 18,Toy Product Design,3,College of Engineering,
+ME 180,Crystalline Defects,3,College of Engineering,"MATH 3B, ME 14, ME 15"
+ME 185,Materials in Engineering,3,College of Engineering,"| MATRL 100B, MATRL 101"
+ME 186A,Manufacturing and Materials,3,College of Engineering,"ME 151C, ME 15 | MATRL 101, MATRL 100C"
+ME 186B,Introduction to Additive Manufacturing,3,College of Engineering,
+ME 189A,Capstone Mechanical Engineering Design Project,3,College of Engineering,"ME 103, ME 151B, ME 152A, ME 153"
+ME 189B,Capstone Mechanical Engineering Design Project,3,College of Engineering,ME 189A
+ME 189C,Capstone Mechanical Engineering Design Project,3,College of Engineering,"ME 189A, ME 189B"
+ME 193,Internship in Industry,1,College of Engineering,
+ME 197,Independent Projects in Mechanical Engineering Design,12,College of Engineering,ME 16
+ME 199,Independent Studies in Mechanical Engineering,12,College of Engineering,
+ME 200,Professional Seminar,1,College of Engineering,
+ME 200P,M.S. Project,3,College of Engineering,
+ME 201,Advanced Dynamics,3,College of Engineering,
+ME 203,Operator Theory Methods in Dynamical Systems,3,College of Engineering,ME 201
+ME 207,Faculty Research Seminar,1,College of Engineering,
+ME 210A,Matrix Analysis and Computation,4,College of Engineering,
+ME 210B,Numerical Simulation,4,College of Engineering,
+ME 210C,Numerical Solution of Partial Differential Equations--Finite Difference Methods.,4,College of Engineering,
+ME 210D,Numerical Solution of Partial Differential Equations - Finite Element Methods,4,College of Engineering,
+ME 211,Pattern Formation and Self-Organization,3,College of Engineering,
+ME 215A,Applied Dynamical Systems I,3,College of Engineering,
+ME 215B,Applied Dynamical Systems II,3,College of Engineering,ME 215A
+ME 216,Level Set Methods,4,College of Engineering,"| CMPSC 211C, CH E 211C, ECE 210C, ME 210C"
+ME 219,Mechanics of Materials,3,College of Engineering,
+ME 220A,Fundamentals of Fluid Mechanics,3,College of Engineering,
+ME 220B,Fundamentals of Fluid Mechanics,3,College of Engineering,"ME 151A, ME 151B, ME 152A, ME 152B"
+ME 221,Advanced Viscous Flow,3,College of Engineering,ME 220A
+ME 225,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225A,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AA,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AB,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AC,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AD,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AE,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AF,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AG,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AH,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AJ,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AK,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AL,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AM,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AN,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AO,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AP,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AQ,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AR,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AS,Special Topics: Introduction to Multiphase Flow,3,College of Engineering,
+ME 225AT,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AU,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AV,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AX,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225AY,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225B,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225BA,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225BC,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225BD,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225BL,SP: Nanoscale Energy Transport & Conversion,3,College of Engineering,
+ME 225BP,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225C,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225CP,Special Topics in Mechanical Engineering: Individual COMSOL projects in Thermal and Fluid Sciences,3,College of Engineering,
+ME 225D,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225E,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225ED,Special Topics in ME: Bio-Inspired Design in Fluid Mechanics,3,College of Engineering,
+ME 225EH,Special Topics in Soft Robotics,3,College of Engineering,
+ME 225EM,Special Topics in ME: Advanced Topics in Fluid Mechanics and Heat Transfer,3,College of Engineering,
+ME 225EN,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225EY,Special Topics in Biological Computing,3,College of Engineering,
+ME 225F,Special Topics: Hydrodynamic Instability and Turbulence,3,College of Engineering,
+ME 225FA,Special Topics: Failure Analysis,3,College of Engineering,
+ME 225FB,Contraction Theory for Dynamical Systems,3,College of Engineering,
+ME 225FE,Special Topics in ME: Modeling of Flow and Heat Transfer using COMSOL Finite Elements Software,3,College of Engineering,
+ME 225FM,Fluid Mechanics and Soft Matter in Additive Manufacturing,3,College of Engineering,
+ME 225G,Special Topics in Mechanical Engineering: Geophysical Fluid Dynamics,3,College of Engineering,
+ME 225H,"Haptics: Touch Perception, Interaction, and Engineering",3,College of Engineering,
+ME 225HS,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225HT,Advanced Heat Transfer,3,College of Engineering,
+ME 225I,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225IB,Special Topics: Defects in Engineering Materials & Analysis,3,College of Engineering,
+ME 225J,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225JM,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225JS,Special Topics: Li Ion Batteries,3,College of Engineering,
+ME 225KA,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225L,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225LF,Special Topics: Vortex Dynamics and Turbulence,3,College of Engineering,
+ME 225M,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225MB,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225MC,Special Topics: MEMS Characterization,3,College of Engineering,
+ME 225ML,Special Topics in ME: Research Topics in Machine Learning and System Identification,3,College of Engineering,
+ME 225MM,Special Topics in Mechanical Engineering: Mathematical Methods in Systems and Controls,3,College of Engineering,
+ME 225MV,Engineering Approaches to Solve Wicked Problems and Global Challenges,3,College of Engineering,
+ME 225N,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225NN,Modeling and Optimization of Neural Networks,3,College of Engineering,
+ME 225O,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225OC,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225OK,Soft Mechanics: Design and Applications,3,College of Engineering,
+ME 225P,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225PL,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225Q,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225R,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225RA,Special Topics in Mechanical Engineering: Radiative Energy Transfer,3,College of Engineering,
+ME 225RM,Chemo-Mechanics: The Intersection of Solid Mechanics and Chemistry,3,College of Engineering,
+ME 225RS,Special Topics: Engineering Biomaterials,3,College of Engineering,
+ME 225RX,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225S,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225SA,Scale Analysis of Multiphysics Phenomena,3,College of Engineering,
+ME 225SD,Special Topics: Mechanics & Measurement,3,College of Engineering,
+ME 225SO,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225T,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225TD,Advanced Engineering Thermodynamics,3,College of Engineering,
+ME 225TF,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225TS,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225U,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225V,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225X,Special Topics in Mechanical Engineering,3,College of Engineering,
+ME 225YZ,Special Topics in Mechanical Engineering: Intro to Interfacial Phenomena,3,College of Engineering,
+ME 230,Elasticity and Plasticity,3,College of Engineering,"| ME 219, MATRL 207"
+ME 232,Plasticity,3,College of Engineering,ME 219
+ME 233,Renewable Energy Technologies,3,College of Engineering,
+ME 233A,Design of Composite Structures,3,College of Engineering,"| ME 230, ME 275A"
+ME 235,Wind and Tidal Energy,3,College of Engineering,
+ME 236,Nonlinear Control Systems,4,College of Engineering,
+ME 238,Advanced Control Design Laboratory,4,College of Engineering,"| ME 243A, ECE 230A; ME 243B, ECE 230B, ME 236, ECE 236, ME 256, ECE 232, ME 254, ECE 271C"
+ME 241,Engineering Biomaterials,3,College of Engineering,
+ME 243A,Linear Systems I,4,College of Engineering,"ME 210A, ECE 210A, CH E 211A | CMPSC 211A, MATH 206A"
+ME 243B,Linear Systems II,4,College of Engineering,"ME 210A, ECE 210A, CH E 211A | ECE 230A, ME 243A; CMPSC 211A, MATH 206A"
+ME 244A,Advanced Theoretical Methods in Engineering,4,College of Engineering,
+ME 244B,Advanced Theoretical Methods in Engineering,3,College of Engineering,ME 244A
+ME 245,Modeling and Control of Spatially Distributed Systems,4,College of Engineering,"| ME 243B, ECE 230B"
+ME 246,Molecular and Cellular Biomechanics,3,College of Engineering,
+ME 252A,Computational Fluid Dynamics,3,College of Engineering,"| ME 210C, CMPSC 211C, ECE 210C, MATH 206C, MATH 211C"
+ME 252B,Computational Fluid Dynamics,3,College of Engineering,"| ME 210C, CMPSC 211C, ECE 210C, MATH 206C, MATH 211C"
+ME 254,Optimal Control of Dynamic Systems,4,College of Engineering,"| ECE 230A, ME 243A"
+ME 256,Robust Control Theory,4,College of Engineering,"| ECE 230A, ME 243A; ECE 230B, ME 243B"
+ME 257,Introduction to Multiphysics Simulation,3,College of Engineering,
+ME 258,Methods in Mechanobiology and Biofabrication,3,College of Engineering,
+ME 264,Mechanical Behavior of Materials,3,College of Engineering,ME 219
+ME 265,Composite Materials,3,College of Engineering,
+ME 267,Thin Films and Multilayers,3,College of Engineering,"MATRL 207, ME 219"
+ME 269,Network Systems: Dynamics and Control,4,College of Engineering,
+ME 271,Finite Element Structural Analysis,3,College of Engineering,ME 219
+ME 275,Fracture Mechanics,3,College of Engineering,ME 219
+ME 280,Crystalline Defects,3,College of Engineering,ME 219
+ME 291A,Physics of Transducers,3,College of Engineering,
+ME 292,Design of Transducers,4,College of Engineering,
+ME 295,"Group Studies: Controls, Dynamical Systems, and Computation",1,College of Engineering,
+ME 500,Teaching Assistant Seminar,1,College of Engineering,
+ME 501,Teaching Assistant Practicum,99,College of Engineering,
+ME 503,Graduate Student Research Practicum,99,College of Engineering,
+ME 596,Directed Research,99,College of Engineering,
+ME 597,Individual Study for Ph.D. Qualifying Examination,99,College of Engineering,
+ME 598,Master's Thesis Research and Preparation,99,College of Engineering,
+ME 599,Ph.D. Dissertation Research and Preparation,99,College of Engineering,
+ME 6,Basic Electrical and Electronic Circuits,4,College of Engineering,"PHYS 3L | PHYS 7B, PHYS 3; MATH 4A, MATH 4AI, MATH 3C"
+ME 95,Introduction to Mechanical Engineering,6,College of Engineering,
+ME 97,Mechanical Engineering Design Projects,12,College of Engineering,
+ME 99,Introduction to Research,6,College of Engineering,
+ME W16,Engineering Mechanics: Dynamics,4,College of Engineering,"ME 14 | PHYS 7A, PHYS 2; MATH 6B, MATH 5C"
+ME W167,Structural Analysis,3,College of Engineering,ME 15
+TMP 111,"Issues in Technology, Business, and Society",1,College of Engineering,
+TMP 120,Fundamentals of Business Strategy,4,College of Engineering,
+TMP 122,Entrepreneurship,4,College of Engineering,
+TMP 124,Principles of Marketing,4,College of Engineering,
+TMP 125,Fundamentals of Business Finance,4,College of Engineering,
+TMP 126,New Venture Finance,2,College of Engineering,
+TMP 127,Understanding and Managing Technology Organizations,4,College of Engineering,
+TMP 130,Operations Management,3,College of Engineering,"WRIT 2, WRIT 50"
+TMP 131,Introductions to Patents and Intellectual Property,3,College of Engineering,
+TMP 132,Business Planning for New Ventures,4,College of Engineering,"WRIT 50, WRIT 10, WRIT 105 | ENGR 120, ENGR 122; WRIT 107, WRIT 109"
+TMP 135,New Product Development,4,College of Engineering,
+TMP 136,Project Management,3,College of Engineering,
+TMP 144,Market Research,4,College of Engineering,
+TMP 147,Seminar in Entrepreneurial Leadership,3,College of Engineering,
+TMP 148A,New Venture Seminar,3,College of Engineering,
+TMP 148B,New Venture Seminar,3,College of Engineering,
+TMP 149,Creating a Market-Tested Business Model,4,College of Engineering,
+TMP 152,Decision Analysis,4,College of Engineering,
+TMP 191,Special Topics in Business and Management,99,College of Engineering,
+TMP 191AI,Understanding AI in Business: Core Foundations of Business Strategy,99,College of Engineering,
+TMP 191BI,Special Topics in Business and Management,99,College of Engineering,
+TMP 191FM,Investment & Financial Management,99,College of Engineering,
+TMP 191IN,Special Topics in Business and Management,99,College of Engineering,
+TMP 191L,Leadership in Technology & Innovation,99,College of Engineering,
+TMP 191MG,Special Topics in Business and Management,99,College of Engineering,
+TMP 191N,Negotiation,99,College of Engineering,
+TMP 191PL,Intellectual Property and Patent Litigation,99,College of Engineering,
+TMP 191SC,Special Topics in Business and Management,99,College of Engineering,
+TMP 191SD,Special Topics in Business and Management,99,College of Engineering,
+TMP 191SP,Sport Business Strategy & Innovation,99,College of Engineering,
+TMP 191VC,Venture Capital / Private Equity,99,College of Engineering,
+TMP 191VE,Special Topics in Business and Management,99,College of Engineering,
+TMP 199,Independent Studies in Technology Management,10,College of Engineering,
+TMP 21,"Past, Present & Future of Entrepreneurship",3,College of Engineering,
+TMP 211,"Opportunities and Perspectives in Technology, Business, and Society",1,College of Engineering,
+TMP 240,Business Strategy & Leadership Skills,4,College of Engineering,
+TMP 241,Managing for Innovation,4,College of Engineering,
+TMP 242,Entrepreneurship,4,College of Engineering,
+TMP 244,Entrepreneurial Marketing,3,College of Engineering,
+TMP 246,New Venture Finance,4,College of Engineering,
+TMP 247,Organizational Teams and Talent Management,3,College of Engineering,
+TMP 250,Operations Management,3,College of Engineering,
+TMP 251,Introductions to Patents and Intellectual Property,3,College of Engineering,
+TMP 252,Decision Analysis,3,College of Engineering,
+TMP 254,Selling High Tech Products,3,College of Engineering,
+TMP 255,New Product Development,4,College of Engineering,
+TMP 256,Project Management,3,College of Engineering,
+TMP 261,Environmental Sustainability as a Business Strategy,3,College of Engineering,
+TMP 264,Market Research for Business,3,College of Engineering,
+TMP 268A,New Venture Seminar,3,College of Engineering,
+TMP 268B,New Venture Seminar,3,College of Engineering,
+TMP 269,Creating a Market-Tested Business Model,4,College of Engineering,
+TMP 271,Organizational Behavior,4,College of Engineering,
+TMP 272,Organization Theory,4,College of Engineering,
+TMP 273,Technology Strategy,4,College of Engineering,
+TMP 274,Networks and Innovation,4,College of Engineering,
+TMP 275,Technology and Organizational Change,4,College of Engineering,
+TMP 276,Teams and Meso-Organizational Theory,4,College of Engineering,
+TMP 280,"Proseminar: Theory, Research, and Practicum",4,College of Engineering,
+TMP 281,Computational Methods and Modeling,4,College of Engineering,
+TMP 282,Network Analysis,4,College of Engineering,
+TMP 283,Qualitative Methods,4,College of Engineering,
+TMP 291,Special Topics in Business and Management,99,College of Engineering,
+TMP 291A,Special Topics in Business and Management,99,College of Engineering,
+TMP 291B,Special Topics in Business and Management,99,College of Engineering,
+TMP 291C,Special Topics in Business and Management,99,College of Engineering,
+TMP 291DA,Special Topics in Business and Management,99,College of Engineering,
+TMP 291DS,Special Topics in Business and Management,99,College of Engineering,
+TMP 291DW,Deviance and Work: The Role of Breaching Expectations in Work Outcome,12,College of Engineering,
+TMP 291FM,Investment & Financial Management,99,College of Engineering,
+TMP 291KL,Special Topics in Business and Management,99,College of Engineering,
+TMP 291LC,Special Topics in Business and Management,99,College of Engineering,
+TMP 291LE,Special Topics in Business and Management,99,College of Engineering,
+TMP 291ME,Special Topics in Business and Management,99,College of Engineering,
+TMP 291OC,Special Topics in Business and Management,99,College of Engineering,
+TMP 291OE,Special Topics in Business and Management,99,College of Engineering,
+TMP 291OI,Special Topics in Business and Management,99,College of Engineering,
+TMP 291OT,Special Topics in Business and Management,99,College of Engineering,
+TMP 291SC,Special Topics in Business and Management,99,College of Engineering,
+TMP 291SG,Special Topics in Business and Management,99,College of Engineering,
+TMP 291ST,Work in an Age of Intelligent Technologies,99,College of Engineering,
+TMP 291TN,"Teams, Networks and Innovation",99,College of Engineering,
+TMP 291TT,Special Topics in Business and Management,99,College of Engineering,
+TMP 291TW,"Readings in Technology, Work and Organizations",99,College of Engineering,
+TMP 291VC,Venture Capital and Private Equity,99,College of Engineering,
+TMP 292,Managerial and Organizational Cognition,4,College of Engineering,
+TMP 293,Discourse and Institutions,4,College of Engineering,
+TMP 299,Independent Studies in Technology Management,10,College of Engineering,
+TMP 34,Business Persuasion and Sales,4,College of Engineering,
+TMP 402,Marketing,4,College of Engineering,
+TMP 411,Economics of Competition in High Tech Industries,4,College of Engineering,
+TMP 412,Strategy for Technology-Driven Companies,4,College of Engineering,
+TMP 413,Building Brands,4,College of Engineering,
+TMP 421,Finance and Accounting for Technology-Driven Companies,4,College of Engineering,
+TMP 422,Data Science and Decision Making,4,College of Engineering,
+TMP 423,Technology-Based Operations,4,College of Engineering,
+TMP 431,Product and Market Validation,4,College of Engineering,
+TMP 432,Project Management in New Product Development,4,College of Engineering,
+TMP 433,Organizational Design for Continuous Innovation,4,College of Engineering,
+TMP 441,Creating Value Through Human Capital,4,College of Engineering,
+TMP 442,Leading Technology Teams,4,College of Engineering,
+TMP 443,Building Strategic Partnerships,4,College of Engineering,
+TMP 451,Opportunity Recognition Practicum,2,College of Engineering,
+TMP 452A,Leadership Practicum: Business Communication,2,College of Engineering,
+TMP 452B,Leadership Practicum: Team Communication,2,College of Engineering,
+TMP 452C,Leadership Practicum: Managerial Communication,2,College of Engineering,
+TMP 462,Product Management,4,College of Engineering,
+TMP 463,Entrepreneurship,4,College of Engineering,
+TMP 464,Learning to Work with Intelligent Machines,4,College of Engineering,
+TMP 465,Digital Transformation,4,College of Engineering,
+TMP 466,Negotiation for Technology Managers,4,College of Engineering,
+TMP 489,Special Issues in Technology Commercialization,2,College of Engineering,
+TMP 491,Special Topics in Technology Management,99,College of Engineering,
+TMP 491A,Leading Teams,4,College of Engineering,
+TMP 491B,Branding,4,College of Engineering,
+TMP 491C,Special Topics in Technology Management,4,College of Engineering,
+TMP 491D,Digital Transformation,4,College of Engineering,
+TMP 491I,Current Issues in Technology Management,12,College of Engineering,
+TMP 491IN,MTM Internship,99,College of Engineering,
+TMP 491N,Negotiation,99,College of Engineering,
+TMP 491P,Capstone Project,12,College of Engineering,
+TMP 491PC,Professional Skills and Career Readiness,2,College of Engineering,
+TMP 492,Business Communication,,College of Engineering,
+TMP 493,Team Communication,,College of Engineering,
+TMP 499,Field Project,4,College of Engineering,
+TMP 499A,Field Project,2,College of Engineering,
+TMP 499B,Field Project,2,College of Engineering,
+TMP 500,Teaching Assistant Practicum,99,College of Engineering,
+TMP 596,Directed Research,99,College of Engineering,
+TMP 597A,Preparation for the Qualifying Exam,20,College of Engineering,
+TMP 597B,Preparation for Qualifying Paper,24,College of Engineering,
+TMP 599,Dissertation Preparation,99,College of Engineering,

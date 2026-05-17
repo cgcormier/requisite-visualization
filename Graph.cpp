@@ -1,17 +1,121 @@
 #include "Graph.h"
 #include "Course.h"
+#include <cctype>
 #include <vector>
 #include <unordered_map>
 
 namespace {
-    std::string stripQuotes(const std::string& value) {
-        if (value.size() >= 2 && value.front() == '"' && value.back() == '"') {
-            return value.substr(1, value.size() - 2);
+    std::string trim(const std::string& value) {
+        size_t start = 0;
+        while (start < value.size() && std::isspace(static_cast<unsigned char>(value[start]))) {
+            ++start;
         }
 
-        return value;
+        size_t end = value.size();
+        while (end > start && std::isspace(static_cast<unsigned char>(value[end - 1]))) {
+            --end;
+        }
+
+        return value.substr(start, end - start);
+    }
+
+    std::vector<std::string> parseCsvRow(const std::string& line) {
+        std::vector<std::string> fields;
+        std::string field;
+        bool in_quotes = false;
+
+        for (size_t i = 0; i < line.size(); ++i) {
+            char current = line[i];
+
+            if (in_quotes) {
+                if (current == '"') {
+                    if (i + 1 < line.size() && line[i + 1] == '"') {
+                        field.push_back('"');
+                        ++i;
+                    } else {
+                        in_quotes = false;
+                    }
+                } else {
+                    field.push_back(current);
+                }
+            } else if (current == '"') {
+                in_quotes = true;
+            } else if (current == ',') {
+                fields.push_back(field);
+                field.clear();
+            } else {
+                field.push_back(current);
+            }
+        }
+
+        fields.push_back(field);
+        return fields;
+    }
+
+    std::vector<std::string> splitCourseList(const std::string& value) {
+        std::vector<std::string> courses;
+        std::stringstream ss(value);
+        std::string course;
+
+        while (std::getline(ss, course, ',')) {
+            course = trim(course);
+            if (!course.empty()) {
+                courses.push_back(course);
+            }
+        }
+
+        return courses;
+    }
+
+    PrereqGroups parsePrereqGroups(const std::string& prereq_str) {
+        PrereqGroups groups;
+        std::string prereqs = trim(prereq_str);
+
+        if (prereqs.empty()) {
+            return groups;
+        }
+
+        size_t separator = prereqs.find('|');
+        std::string and_section = separator == std::string::npos
+            ? prereqs
+            : prereqs.substr(0, separator);
+
+        groups.andPrereqs = splitCourseList(and_section);
+
+        if (separator == std::string::npos) {
+            return groups;
+        }
+
+        std::string or_section = prereqs.substr(separator + 1);
+        std::stringstream or_stream(or_section);
+        std::string semicolon_group;
+
+        while (std::getline(or_stream, semicolon_group, ';')) {
+            std::stringstream legacy_pipe_stream(semicolon_group);
+            std::string pipe_group;
+
+            while (std::getline(legacy_pipe_stream, pipe_group, '|')) {
+                std::vector<std::string> alternatives = splitCourseList(pipe_group);
+                if (!alternatives.empty()) {
+                    groups.orGroups.push_back(alternatives);
+                }
+            }
+        }
+
+        return groups;
     }
 }
+
+std::vector<std::string> PrereqGroups::allPrereqs() const {
+    std::vector<std::string> prereqs = andPrereqs;
+
+    for (const std::vector<std::string>& group : orGroups) {
+        prereqs.insert(prereqs.end(), group.begin(), group.end());
+    }
+
+    return prereqs;
+}
+
 Graph::Graph(){
      adj = std::unordered_map<std::string, std::vector<std::string>>();
 
@@ -28,16 +132,23 @@ void Graph::buildGraph(){
 
     std::string line = "";
     while(std::getline(file, line)){
-        std::stringstream ss(line);
-        std::string course_id;
-        std::getline(ss, course_id, ',');
+        std::vector<std::string> fields = parseCsvRow(line);
+        if (fields.empty()) {
+            continue;
+        }
+
+        std::string course_id = trim(fields[0]);
 
         if (course_id == "id" || course_id.empty()) {
             continue;
         }
 
         adj[course_id];
-        std::vector<std::string> prereqs = grabPreReqs(course_id);
+        std::vector<std::string> prereqs;
+        if (fields.size() >= 5) {
+            prereqs = parsePrereqGroups(fields[4]).allPrereqs();
+        }
+
         for (const std::string& prereq : prereqs) {
             adj[prereq].push_back(course_id);
         }
@@ -72,41 +183,37 @@ int Graph::CountPaths(std::string start, std::string end) { //bfs to find the sh
         }
     }
 
-    return distance[end] == INT_MAX ? -1 : distance[end];
+    auto end_distance = distance.find(end);
+    return end_distance == distance.end() || end_distance->second == INT_MAX ? -1 : end_distance->second;
 }
-std::vector<std::string> Graph::grabPreReqs(std::string id){
+PrereqGroups Graph::grabPreReqGroups(std::string id){
     std::ifstream file("courses.csv");
     if(!file.is_open()){
         std::cerr << "Error opening file!" << std::endl;
         return {};
     }
-    std::vector<std::string> prereqs; 
     std::string line = "";
 
     while(std::getline(file, line)){
-        std::stringstream ss(line);
-        std::string course_id, name, credits, college, prereq_str;
-        std::getline(ss, course_id, ',');
-        std::getline(ss, name, ',');
-        std::getline(ss, credits, ',');
-        std::getline(ss, college, ',');
-        std::getline(ss, prereq_str);
+        std::vector<std::string> fields = parseCsvRow(line);
+        if (fields.size() < 5) {
+            continue;
+        }
+
+        std::string course_id = trim(fields[0]);
 
         if (course_id == "id") {
             continue;
         }
 
         if(course_id == id){
-            std::stringstream prereq_ss(stripQuotes(prereq_str));
-            std::string prereq;
-            while(std::getline(prereq_ss, prereq, '|')){
-                if (!prereq.empty()) {
-                    prereqs.push_back(prereq);
-                }
-            }
-            break;
+            return parsePrereqGroups(fields[4]);
         }
     }
 
-    return prereqs;
+    return {};
+}
+
+std::vector<std::string> Graph::grabPreReqs(std::string id){
+    return grabPreReqGroups(id).allPrereqs();
 }

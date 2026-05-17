@@ -14,7 +14,7 @@ endif
 
 TARGET ?= $(TARGET_BASE)$(EXEEXT)
 
-SOURCES := main.cpp Graph.cpp Course.cpp
+SOURCES := main.cpp Graph.cpp Course.cpp DatabaseConfig.cpp
 OBJECTS := $(SOURCES:.cpp=.o)
 DEPS := $(OBJECTS:.o=.d)
 
