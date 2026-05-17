@@ -53,8 +53,8 @@ docker compose exec postgres sh -lc 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"'
 
 Schema and seed files:
 
-- `db/migrations/001_initial_schema.sql`
-- `db/seeds/001_sample_data.sql`
+- `backend/db/migrations/001_initial_schema.sql`
+- `backend/db/seeds/001_sample_data.sql`
 
 Prerequisites are modeled with grouped requirements that match the CSV format:
 
@@ -63,5 +63,7 @@ AND course, AND course | OR option, OR option; OR option, OR option
 ```
 
 Every `all` group must be completed. Every `any` group requires one of its options. For graph-only queries, `course_dependency_edges` provides a flattened prerequisite-to-course edge view.
+
+The C++ backend lives in `backend/src` with headers in `backend/include`. Course data lives in `backend/data/courses.csv`; set `COURSES_CSV_PATH` to override the CSV path.
 
 The app reads database settings from `DATABASE_URL` or the `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` environment variables via `DatabaseConfig::fromEnvironment()`. The current app only loads connection configuration; it does not require a system PostgreSQL client library to build.

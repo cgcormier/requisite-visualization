@@ -1,6 +1,7 @@
 #include "Graph.h"
 #include "Course.h"
 #include <cctype>
+#include <cstdlib>
 #include <vector>
 #include <unordered_map>
 
@@ -67,6 +68,29 @@ namespace {
         return courses;
     }
 
+    std::ifstream openCoursesFile() {
+        const char* override_path = std::getenv("COURSES_CSV_PATH");
+        const std::vector<std::string> candidate_paths = {
+            override_path == nullptr ? "" : override_path,
+            "backend/data/courses.csv",
+            "data/courses.csv",
+            "courses.csv",
+        };
+
+        for (const std::string& path : candidate_paths) {
+            if (path.empty()) {
+                continue;
+            }
+
+            std::ifstream file(path);
+            if (file.is_open()) {
+                return file;
+            }
+        }
+
+        return {};
+    }
+
     PrereqGroups parsePrereqGroups(const std::string& prereq_str) {
         PrereqGroups groups;
         std::string prereqs = trim(prereq_str);
@@ -122,9 +146,9 @@ Graph::Graph(){
 }
 
 void Graph::buildGraph(){
-    std::ifstream file("courses.csv");
+    std::ifstream file = openCoursesFile();
     if(!file.is_open()){
-        std::cerr << "Error opening file!" << std::endl;
+        std::cerr << "Error opening courses CSV file!" << std::endl;
         return;
     }
 
@@ -187,9 +211,9 @@ int Graph::CountPaths(std::string start, std::string end) { //bfs to find the sh
     return end_distance == distance.end() || end_distance->second == INT_MAX ? -1 : end_distance->second;
 }
 PrereqGroups Graph::grabPreReqGroups(std::string id){
-    std::ifstream file("courses.csv");
+    std::ifstream file = openCoursesFile();
     if(!file.is_open()){
-        std::cerr << "Error opening file!" << std::endl;
+        std::cerr << "Error opening courses CSV file!" << std::endl;
         return {};
     }
     std::string line = "";
