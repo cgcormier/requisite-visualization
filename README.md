@@ -1,42 +1,83 @@
 # requisite-visualization
-Visualizes perquisites for classes. Helpful for deciding course journey through college. 
 
-## Project Direction
-`requisite-visualization` is a course prerequisite exploration tool for UCSB College of Engineering courses. The goal is to help students search for a course, understand its direct and recursive prerequisites, see which later courses depend on it, and eventually plan a path through a degree or course sequence.
+`requisite-visualization` is an early prototype for exploring UCSB College of Engineering course prerequisites. The goal is to help students search for a course, understand direct and recursive prerequisites, see which later courses depend on it, and eventually plan paths through a course or degree sequence.
 
+## Current Behavior
 
-Project in early prototype state. Backend can grab and parse course csv and build a prerequisite graph. PostgreSQL schema work initiated, but does not yet load complete catalog nor does it expose an API. Frontend directory is currently a placeholder, but will be built via React. 
+- The C++ backend reads `backend/data/courses.csv` and builds an in-memory prerequisite graph.
+- `backend/src/main.cpp` is currently a demo/test harness with hardcoded path checks, not the final app runtime.
+- `scripts/generate_courses_csv.py` fetches UCSB Coursedog catalog data and writes the generated CSV.
+- PostgreSQL schema and Docker Compose setup exist, but the database currently uses sample seed data and does not load the full catalog.
+- The app reads database configuration from environment variables, but the C++ backend does not yet connect to PostgreSQL for catalog queries.
+- `frontend/` is currently a placeholder. The planned frontend is React + TypeScript, but it has not been scaffolded.
 
-## Current Status
+## Planned Product Direction
 
-- C++ backend prototype reads `backend/data/courses.csv`.
-- `Graph` can build prerequisite-to-course edges and run simple path checks.
-- `scripts/generate_courses_csv.py` generates the CSV from UCSB Coursedog catalog data.
-- PostgreSQL runs locally through Docker Compose.
-- Database schema supports grouped prerequisites: required courses and alternative prerequisite groups.
-- Frontend visualization has not been implemented yet.
+The intended product is a course explorer where a student can:
 
+- Search for UCSB College of Engineering courses.
+- Inspect direct prerequisite groups and recursive prerequisites.
+- Inspect direct and recursive dependents.
+- See alternatives in OR prerequisite groups without confusing them for required courses.
+- Explore graph neighborhoods by depth and direction.
+- Eventually mark completed courses and plan a path through future courses.
 
 ## Intended Data Flow
-UCSB CourseDog catalog
-         ↓ 
-scripts/generate_courses_csv.py
-         ↓
-backend/data/courses.csv
-         ↓
-PostgreSQL import
-         ↓
-C++ graph/query layer
-         ↓
-API
-         ↓
-React/typescript web visualization
 
-## Near-Term Roadmap
-- TODO
+```text
+UCSB Coursedog catalog
+  -> scripts/generate_courses_csv.py
+  -> backend/data/courses.csv
+  -> PostgreSQL import
+  -> C++ graph/query layer
+  -> API
+  -> React/TypeScript visualization
+```
 
+Only the Coursedog-to-CSV and CSV-to-C++ graph parts are implemented today. PostgreSQL import, API endpoints, and the frontend visualization are planned work.
 
-## Local PostgreSQL with Docker Compose
+## Repository Layout
+
+```text
+backend/
+  data/                  Generated course CSV
+  db/                    PostgreSQL schema and sample seed data
+  include/               C++ headers
+  src/                   C++ prototype implementation
+frontend/                Placeholder for planned React/TypeScript app
+scripts/                 Data generation and local helper scripts
+docs/                    Architecture and data-quality notes
+```
+
+## Local Backend Commands
+
+Build the current C++ prototype:
+
+```powershell
+mingw32-make
+```
+
+Run the current demo executable:
+
+```powershell
+.\build\requisite-visualization.exe
+```
+
+Clean build artifacts:
+
+```powershell
+mingw32-make clean
+```
+
+Regenerate the course CSV from UCSB Coursedog:
+
+```powershell
+python .\scripts\generate_courses_csv.py --output backend\data\courses.csv
+```
+
+`scripts/generate_courses_csv.py` requires `requests`. Python dependencies are not pinned yet.
+
+## Local PostgreSQL With Docker Compose
 
 This project uses Docker Compose for local PostgreSQL. Do not install system-wide PostgreSQL for this setup.
 
@@ -78,27 +119,42 @@ Resetting the database is destructive because it deletes the local `postgres_dat
 docker compose down -v
 ```
 
-The next `docker compose up -d postgres` will recreate the database and rerun the init scripts.
-
 Connect with `psql` inside the container:
 
 ```powershell
 docker compose exec postgres sh -lc 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"'
 ```
 
-Schema and seed files:
+Schema and sample seed files:
 
 - `backend/db/migrations/001_initial_schema.sql`
 - `backend/db/seeds/001_sample_data.sql`
 
-Prerequisites are modeled with grouped requirements that match the CSV format:
+## Prerequisite Semantics
+
+Prerequisites are represented as grouped requirements:
 
 ```text
 AND course, AND course | OR option, OR option; OR option, OR option
 ```
 
-Every `all` group must be completed. Every `any` group requires one of its options. For graph-only queries, `course_dependency_edges` provides a flattened prerequisite-to-course edge view.
+Every `all` group must be completed. Every `any` group requires one option from the group. Flattened prerequisite-to-course edges are useful for traversal, but they do not fully represent grouped prerequisite semantics by themselves.
 
-The C++ backend lives in `backend/src` with headers in `backend/include`. Course data lives in `backend/data/courses.csv`; set `COURSES_CSV_PATH` to override the CSV path.
+See `docs/data-quality.md` for known parser and catalog caveats.
 
-The app reads database settings from `DATABASE_URL` or the `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` environment variables via `DatabaseConfig::fromEnvironment()`. The current app only loads connection configuration; it does not require a system PostgreSQL client library to build.
+## Near-Term Roadmap
+
+- Split CSV parsing and prerequisite parsing out of the graph implementation.
+- Load the full generated CSV catalog into PostgreSQL with grouped prerequisite rows.
+- Define small JSON API contracts for courses, prerequisite groups, graph neighborhoods, and paths.
+- Scaffold the React/TypeScript frontend and start with mocked API responses.
+- Add focused tests for parser behavior, graph traversal, import behavior, and future frontend interactions.
+- Document open product decisions before implementation depends on them.
+
+## Open Decisions
+
+- Should the project remain UCSB College of Engineering only, or expand to all UCSB departments?
+- Should PostgreSQL become the runtime source of truth, or should the app continue to load CSV at runtime?
+- Should the API be implemented in C++ or with a web-native backend?
+- How should external prerequisites, concurrent enrollment, minimum grades, standing requirements, and instructor consent be modeled?
+- Is the target a local-only tool, a deployed web app, a class project, or a portfolio project?
