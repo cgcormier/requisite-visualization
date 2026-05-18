@@ -19,6 +19,8 @@ If Docker Desktop is installed but `docker` is not on PATH, run:
    Copy-Item .env.example .env
    ```
 
+   Keep `.env` local. It contains real credentials and is ignored by Git. Commit only `.env.example` with placeholder values.
+
 2. Start PostgreSQL:
 
    ```powershell
