@@ -1,7 +1,40 @@
 # requisite-visualization
 Visualizes perquisites for classes. Helpful for deciding course journey through college. 
 
-# TODO X
+## Project Direction
+`requisite-visualization` is a course prerequisite exploration tool for UCSB College of Engineering courses. The goal is to help students search for a course, understand its direct and recursive prerequisites, see which later courses depend on it, and eventually plan a path through a degree or course sequence.
+
+
+Project in early prototype state. Backend can grab and parse course csv and build a prerequisite graph. PostgreSQL schema work initiated, but does not yet load complete catalog nor does it expose an API. Frontend directory is currently a placeholder, but will be built via React. 
+
+## Current Status
+
+- C++ backend prototype reads `backend/data/courses.csv`.
+- `Graph` can build prerequisite-to-course edges and run simple path checks.
+- `scripts/generate_courses_csv.py` generates the CSV from UCSB Coursedog catalog data.
+- PostgreSQL runs locally through Docker Compose.
+- Database schema supports grouped prerequisites: required courses and alternative prerequisite groups.
+- Frontend visualization has not been implemented yet.
+
+
+## Intended Data Flow
+UCSB CourseDog catalog
+         ↓ 
+scripts/generate_courses_csv.py
+         ↓
+backend/data/courses.csv
+         ↓
+PostgreSQL import
+         ↓
+C++ graph/query layer
+         ↓
+API
+         ↓
+React/typescript web visualization
+
+## Near-Term Roadmap
+- TODO
+
 
 ## Local PostgreSQL with Docker Compose
 

@@ -5,3 +5,4 @@ build/
 *.obj
 *.exe
 requisite-visualization
+feedback.md
