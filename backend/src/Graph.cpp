@@ -180,7 +180,8 @@ void Graph::buildGraph(){
 
 }
 
-int Graph::CountPaths(std::string start, std::string end) { //bfs to find the shortest path between two courses
+    //bfs to find the shortest path between two courses
+int Graph::CountPaths(std::string start, std::string end) { 
     std::unordered_map<std::string, bool> visited;
     std::unordered_map<std::string, int> distance;
     std::queue<std::string> q;
@@ -210,6 +211,7 @@ int Graph::CountPaths(std::string start, std::string end) { //bfs to find the sh
     auto end_distance = distance.find(end);
     return end_distance == distance.end() || end_distance->second == INT_MAX ? -1 : end_distance->second;
 }
+
 PrereqGroups Graph::grabPreReqGroups(std::string id){
     std::ifstream file = openCoursesFile();
     if(!file.is_open()){
