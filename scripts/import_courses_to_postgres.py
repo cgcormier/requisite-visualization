@@ -9,11 +9,13 @@ import re
 import subprocess
 import sys
 import tempfile
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
 
 REQUIRED_HEADERS = ["id", "name", "credits", "college", "prereqs"]
+OPTIONAL_METADATA_HEADERS = ["subject", "department"]
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CSV_PATH = REPO_ROOT / "backend" / "data" / "courses.csv"
 
@@ -26,6 +28,8 @@ class CourseRow:
     credits: str
     college: str
     prereqs: str
+    subject: str = ""
+    department: str = ""
 
 
 @dataclass(frozen=True)
@@ -49,6 +53,7 @@ class ImportPlan:
     groups: list[PrerequisiteGroup]
     options: list[PrerequisiteOption]
     errors: list[str]
+    headers: list[str]
 
 
 def compact_spaces(value: str) -> str:
@@ -135,6 +140,7 @@ def read_csv(csv_path: Path) -> ImportPlan:
                 groups=[],
                 options=[],
                 errors=[f"missing CSV headers: {', '.join(missing_headers)}"],
+                headers=headers,
             )
 
         seen_course_ids: dict[str, int] = {}
@@ -146,6 +152,8 @@ def read_csv(csv_path: Path) -> ImportPlan:
                 credits=(row.get("credits") or "").strip(),
                 college=(row.get("college") or "").strip(),
                 prereqs=(row.get("prereqs") or "").strip(),
+                subject=compact_spaces(row.get("subject") or ""),
+                department=compact_spaces(row.get("department") or ""),
             )
 
             if not course.course_id:
@@ -169,11 +177,27 @@ def read_csv(csv_path: Path) -> ImportPlan:
             errors.extend(prereq_errors)
             courses.append(course)
 
-    return ImportPlan(courses=courses, groups=groups, options=options, errors=errors)
+    return ImportPlan(courses=courses, groups=groups, options=options, errors=errors, headers=headers)
 
 
 def is_positive_integer(value: str) -> bool:
     return bool(re.fullmatch(r"[1-9][0-9]*", value))
+
+
+def summarize_coverage(label: str, values: list[str], has_column: bool, limit: int = 8) -> str:
+    if not has_column:
+        return f"{label} coverage: not available (CSV column not present)"
+
+    counts = Counter(value for value in values if value)
+    blank_count = sum(1 for value in values if not value)
+    if not counts:
+        return f"{label} coverage: 0 values, blank rows: {blank_count}"
+
+    rendered = ", ".join(f"{name}={count}" for name, count in counts.most_common(limit))
+    remaining = len(counts) - limit
+    if remaining > 0:
+        rendered += f", ... {remaining} more"
+    return f"{label} coverage: {len(counts)} values, blank rows: {blank_count}; {rendered}"
 
 
 def build_summary(plan: ImportPlan, csv_path: Path) -> list[str]:
@@ -187,10 +211,15 @@ def build_summary(plan: ImportPlan, csv_path: Path) -> list[str]:
     )
     any_group_count = sum(1 for group in plan.groups if group.group_kind == "any")
     all_group_count = sum(1 for group in plan.groups if group.group_kind == "all")
+    has_subject_column = OPTIONAL_METADATA_HEADERS[0] in plan.headers
+    has_department_column = OPTIONAL_METADATA_HEADERS[1] in plan.headers
 
     return [
         f"CSV path: {csv_path}",
         f"Courses: {len(plan.courses)}",
+        summarize_coverage("College", [course.college for course in plan.courses], True),
+        summarize_coverage("Subject", [course.subject for course in plan.courses], has_subject_column),
+        summarize_coverage("Department", [course.department for course in plan.courses], has_department_column),
         f"Courses with prerequisites: {len(courses_with_prereqs)}",
         f"Prerequisite groups: {len(plan.groups)} ({all_group_count} all, {any_group_count} any)",
         f"Prerequisite options: {len(plan.options)}",
@@ -226,7 +255,7 @@ def values_insert(table_name: str, columns: list[str], rows: list[tuple[object, 
 
 def generate_sql(plan: ImportPlan) -> str:
     course_rows = [
-        (course.course_id, course.name, course.credits, course.college)
+        (course.course_id, course.name, course.credits, course.college, course.subject, course.department)
         for course in plan.courses
     ]
     group_rows = [
@@ -246,7 +275,9 @@ def generate_sql(plan: ImportPlan) -> str:
             "    id TEXT PRIMARY KEY,",
             "    name TEXT NOT NULL,",
             "    credits TEXT NOT NULL,",
-            "    college TEXT NOT NULL",
+            "    college TEXT NOT NULL,",
+            "    subject TEXT NOT NULL,",
+            "    department TEXT NOT NULL",
             ") ON COMMIT DROP;",
             "",
             "CREATE TEMP TABLE import_course_prerequisite_groups (",
@@ -262,7 +293,11 @@ def generate_sql(plan: ImportPlan) -> str:
             "    prerequisite_id TEXT NOT NULL",
             ") ON COMMIT DROP;",
             "",
-            values_insert("import_courses", ["id", "name", "credits", "college"], course_rows).rstrip(),
+            values_insert(
+                "import_courses",
+                ["id", "name", "credits", "college", "subject", "department"],
+                course_rows,
+            ).rstrip(),
             "",
             values_insert(
                 "import_course_prerequisite_groups",
@@ -292,6 +327,29 @@ def generate_sql(plan: ImportPlan) -> str:
             "    credits = EXCLUDED.credits,",
             "    college = EXCLUDED.college,",
             "    updated_at = now();",
+            "",
+            "DO $$",
+            "BEGIN",
+            "    IF EXISTS (",
+            "        SELECT 1",
+            "        FROM information_schema.columns",
+            "        WHERE table_schema = 'public'",
+            "            AND table_name = 'courses'",
+            "            AND column_name = 'subject'",
+            "    ) THEN",
+            "        EXECUTE 'UPDATE courses SET subject = imported.subject FROM import_courses AS imported WHERE courses.id = imported.id';",
+            "    END IF;",
+            "",
+            "    IF EXISTS (",
+            "        SELECT 1",
+            "        FROM information_schema.columns",
+            "        WHERE table_schema = 'public'",
+            "            AND table_name = 'courses'",
+            "            AND column_name = 'department'",
+            "    ) THEN",
+            "        EXECUTE 'UPDATE courses SET department = imported.department FROM import_courses AS imported WHERE courses.id = imported.id';",
+            "    END IF;",
+            "END $$;",
             "",
             "INSERT INTO course_prerequisite_groups (course_id, group_position, group_kind)",
             "SELECT course_id, group_position, group_kind",
@@ -344,6 +402,10 @@ Dry-run validation uses only the Python standard library and does not require
 Docker, psql, or a DB driver. Applying requires psql. The script does not read
 .env; supply connection details through psql defaults, PG* environment
 variables, .pgpass, or the non-secret psql flags above.
+
+CSV columns subject and department are optional. When present, dry-run reports
+coverage. Generated SQL carries them through a temp table and updates matching
+courses columns only if those columns already exist.
 """,
     )
     parser.add_argument(

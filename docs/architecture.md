@@ -1,64 +1,66 @@
 # Architecture
 
-This document describes the intended system design for `requisite-visualization`. It separates current implementation from planned integration work.
+This document describes the current local architecture for `requisite-visualization` and separates implemented behavior from remaining roadmap work.
 
-## Current Implementation
-
-The project currently has three implemented pieces:
-
-- A Python catalog generator at `scripts/generate_courses_csv.py`.
-- A generated catalog file at `backend/data/courses.csv`.
-- A C++ prototype that reads the CSV and builds an in-memory prerequisite graph.
-
-The executable in `backend/src/main.cpp` is a demo/test harness. It is not yet an API server or application runtime.
-
-PostgreSQL schema and Docker Compose configuration exist, but the database currently starts with sample seed data only. The full generated catalog is not imported into PostgreSQL yet.
-
-The `frontend/` directory is a placeholder. No React app has been scaffolded yet.
-
-## Intended Data Flow
+## Implemented Data Flow
 
 ```text
 UCSB Coursedog catalog
   -> scripts/generate_courses_csv.py
   -> backend/data/courses.csv
-  -> PostgreSQL import
-  -> C++ graph/query layer
-  -> API
+  -> in-memory C++ catalog/API
   -> React/TypeScript visualization
 ```
 
-Implemented today:
+PostgreSQL schema and import tooling exist, but PostgreSQL is not currently required by the running app.
 
-- Coursedog catalog fetch and CSV generation.
-- CSV loading into the C++ graph prototype.
-- Flattened graph traversal for simple path checks.
+## Catalog Layer
 
-Planned:
+`scripts/generate_courses_csv.py` fetches current UCSB Coursedog records and writes:
 
-- Full PostgreSQL import from `backend/data/courses.csv`.
-- Catalog/query abstraction that loads course data once.
-- HTTP API for frontend access.
-- React/TypeScript course explorer and visualization.
+```text
+id,name,credits,college,prereqs,subject,department
+```
 
-## Backend Graph Layer
+The first five columns remain compatible with older graph code. `subject` and `department` support API responses and frontend filters. The generator can filter by exact college label with `--college`, and the default output is all current UCSB courses for the chosen effective date.
 
-The graph layer should support two related representations:
+## Backend API
 
-- Grouped prerequisite semantics for correctness.
-- Flattened graph edges for traversal and visualization.
+The API server is implemented in C++ under:
 
-Grouped semantics are needed because an OR group means one option is required, not every listed option. Flattened edges are still useful for graph neighborhoods, dependent-course lookups, shortest paths, and cycle detection.
+- `backend/include/api/`
+- `backend/src/api/`
 
-Planned graph queries include:
+`backend/src/api/HttpServer.cpp` is a small standalone local HTTP server. It binds to `127.0.0.1`, defaults to `API_PORT=8080`, loads `backend/data/courses.csv`, and does not read `.env`.
 
-- Direct prerequisites.
-- Recursive prerequisites.
-- Direct dependents.
-- Recursive dependents.
-- Shortest path with path reconstruction.
-- Graph neighborhood by course, direction, and depth.
-- Cycle detection.
+Implemented endpoints:
+
+```text
+GET /health
+GET /courses
+GET /courses/:id
+GET /courses/:id/prerequisites
+GET /courses/:id/dependents
+GET /graph?course=CMPSC%2016&direction=both&depth=3
+```
+
+The API preserves grouped prerequisite semantics with `groupType` and `groupIndex`, while also returning flattened IDs and graph edges for visualization. External prerequisite references remain visible with `external` flags.
+
+## Frontend
+
+`frontend/` is a Vite React + TypeScript app using Cytoscape for graph visualization. It uses `fetch()` through `frontend/src/api/client.ts`; normal runtime does not import `frontend/src/data/mockCatalog.ts`.
+
+Implemented UI behavior:
+
+- Course search and selected-course detail from backend API data.
+- Prerequisite and dependent sections from backend relationship endpoints.
+- Graph neighborhoods from `/graph`.
+- Multi-select college filters and subject filtering.
+- Dark high-contrast workspace.
+- Circular course nodes.
+- Clickable graph nodes that refetch and display course details.
+- Fit, zoom in, zoom out, reset, and fullscreen controls.
+- Solid bright colors for `any` prerequisite groups, keyed by `groupIndex`.
 
 ## Database Layer
 
@@ -66,60 +68,19 @@ Current database state:
 
 - Docker Compose can start PostgreSQL.
 - The migration defines tables for courses and grouped prerequisites.
-- The seed file contains only a small sample dataset.
+- The seed file contains a small sample dataset.
+- `scripts/import_courses_to_postgres.py` supports dry-run validation of the expanded CSV and accepts optional `subject` and `department` columns.
 
-Planned database work:
+Remaining database work:
 
-- Import all generated CSV courses.
-- Preserve prerequisite group order and option order.
-- Keep external prerequisite references visible instead of silently dropping them.
-- Improve credits modeling for blank, variable, or nonstandard credit values.
-- Store enough source metadata to understand when and how the catalog was generated.
+- Decide whether PostgreSQL should become the runtime source of truth.
+- Add schema columns or related tables for subject and department if PostgreSQL stores the full catalog.
+- Preserve external prerequisite references and nonstandard credit values in a durable model.
 
-Until the import pipeline exists, documentation and application code should not imply that PostgreSQL contains the full catalog.
+## Open Architecture Decisions
 
-## Proposed API Boundary
-
-The API has not been implemented. A small proposed endpoint set is:
-
-```text
-GET /courses
-GET /courses/:id
-GET /courses/:id/prerequisites
-GET /courses/:id/dependents
-GET /graph?course=CMPSC%2016&direction=both&depth=3
-GET /paths?from=CMPSC%208&to=CMPSC%20189A
-```
-
-Proposed response contracts should distinguish:
-
-- Course metadata.
-- Prerequisite groups.
-- Graph nodes.
-- Graph edges.
-- Path results.
-- External prerequisite references.
-
-The API strategy is still an open decision. Options include a C++ API around the existing graph layer or a web-native backend that reuses the same catalog/import contract.
-
-## Frontend Direction
-
-The frontend has not been scaffolded. The planned frontend is React + TypeScript.
-
-The first usable screen should be the course explorer itself, not a marketing landing page. Expected initial capabilities:
-
-- Course search.
-- Selected-course details.
-- Prerequisite and dependent views.
-- Graph depth and direction controls.
-- Visual distinction between required prerequisites and alternative groups.
-- Loading, empty, and error states.
-
-Frontend work should start with mocked API responses until the API contracts stabilize.
-
-## Cross-Lane Handoffs
-
-- Database/import work should define how external prerequisites and credits are represented before the API treats those fields as stable.
-- API work should publish small JSON examples before frontend implementation depends on them.
-- Graph work should preserve grouped prerequisite data even if traversal uses flattened edges.
-- Documentation should describe planned behavior as planned until the relevant lane implements and verifies it.
+- CSV runtime source vs. PostgreSQL runtime source.
+- `/paths` endpoint and path reconstruction ownership.
+- Long-term HTTP server strategy if the local socket server grows too much.
+- Modeling concurrent enrollment, minimum grades, standing requirements, instructor consent, and non-course prerequisites.
+- Frontend test strategy for Cytoscape interactions.

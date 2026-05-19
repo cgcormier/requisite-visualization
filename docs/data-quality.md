@@ -1,22 +1,27 @@
 # Data Quality
 
-This document records known catalog and parser caveats for `requisite-visualization`.
+This document records current catalog and parser caveats for `requisite-visualization`.
 
 ## Current Data Source
 
-Course data comes from UCSB Coursedog through `scripts/generate_courses_csv.py`. The script writes `backend/data/courses.csv`, which is currently consumed by the C++ graph prototype.
+Course data comes from UCSB Coursedog through `scripts/generate_courses_csv.py`. The script writes `backend/data/courses.csv`, which is consumed by the C++ API and the older graph demo.
 
-The generated CSV is treated as generated data. It should not be rewritten unless the task is specifically about data generation or import.
+The generated CSV is treated as generated data. Rewrite it only for catalog generation/import work.
 
-## Known Catalog Facts
+## Current Catalog Facts
 
-The current planning pass identified these facts about `backend/data/courses.csv`:
+The current generated catalog was produced for effective date `2026-05-18` and contains:
 
-- The CSV has 1,145 College of Engineering course rows.
-- 351 rows have prerequisites.
-- 144 rows contain OR prerequisite groups.
-- `TMP 492` and `TMP 493` have blank credits.
-- 91 prerequisite references point outside the current College of Engineering CSV catalog.
+- 12,271 course rows.
+- 6 college/school labels.
+- 139 subject labels.
+- 60 department labels.
+- 2,156 courses with prerequisites.
+- 2,461 prerequisite groups: 1,229 `all` groups and 1,232 `any` groups.
+- 5,463 prerequisite options.
+- 569 external prerequisite option references across 198 distinct prerequisite IDs.
+- 9 blank credit values.
+- 11 nonstandard nonblank credit values.
 
 These facts should be rechecked after regenerating the CSV because the upstream catalog can change.
 
@@ -34,20 +39,13 @@ For example, if a course accepts `CMPSC 8` or `CMPSC 16`, both may appear as gra
 
 ## External References
 
-Some prerequisite references point to courses outside the current College of Engineering CSV catalog. This can happen when engineering courses require math, physics, chemistry, writing, or other non-CoE courses.
+Even after expanding to all current UCSB courses, some prerequisite references remain external. These may be inactive courses, parser artifacts, cross-catalog references, or non-course requirements that look course-like.
 
-Open modeling options:
-
-- Keep external references as plain prerequisite IDs.
-- Create placeholder course nodes for external references.
-- Expand the catalog source beyond College of Engineering.
-- Store external references in a separate table or field.
-
-Until this decision is made, imports and APIs should preserve external prerequisite text and avoid silently dropping it.
+The API preserves these references with `external` flags. The product should continue to show them rather than silently dropping them.
 
 ## Credits
 
-The current schema and code need to account for blank, variable, and nonstandard credit values. A single required integer is not enough for all catalog rows.
+The catalog includes blank, variable, and nonstandard credit values. The API serializes blank credits as `null`; the frontend displays those as variable/unknown units.
 
 Possible future representation:
 
@@ -60,7 +58,7 @@ Documentation and UI should not assume every course has a single fixed integer c
 
 ## Parser Limitations To Track
 
-The prerequisite parser should be tested against cases such as:
+The prerequisite parser should continue to be tested against:
 
 - OR groups.
 - Semicolon-separated groups.
@@ -72,18 +70,16 @@ The prerequisite parser should be tested against cases such as:
 - Instructor consent.
 - Non-course requirements.
 
-Some of these requirements may not be representable as course nodes. The product should preserve the raw prerequisite text or parser notes so students can see requirements that the graph cannot model.
+Some of these requirements may not be representable as course nodes. The product should preserve raw prerequisite text or parser notes so students can see requirements the graph cannot model.
 
-## Verification Checks For Import Work
+## Verification Checks
 
-When the database import pipeline is implemented, focused checks should cover:
+Current lightweight checks:
 
-- Total imported course count.
-- Prerequisite group count.
-- Prerequisite option count.
-- Courses with OR groups.
-- External prerequisite references.
-- Blank or nonstandard credits.
-- A few known graph neighborhoods and path results.
+```powershell
+python .\scripts\import_courses_to_postgres.py --dry-run
+python -m unittest discover -s tests/python
+mingw32-make test-cpp
+```
 
-These checks belong with the database/import and testing lanes. This document records what should be verified, not that the import pipeline already exists.
+Future database integration checks should cover imported course count, group count, option count, sample OR-group courses, external prerequisite references, and blank/nonstandard credits.

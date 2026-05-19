@@ -4,15 +4,22 @@ Repository instructions for coding agents working on `requisite-visualization`.
 
 ## Project Overview
 
-`requisite-visualization` is an early prototype for exploring UCSB College of Engineering course prerequisites. The intended product is a web app where students can search for a course, see direct and recursive prerequisites, inspect dependent courses, and eventually plan a path through courses or a degree sequence.
+`requisite-visualization` is an early prototype for exploring UCSB course prerequisites. The intended product is a web app where students can search for a course, see direct and recursive prerequisites, inspect dependent courses, filter by academic unit, and eventually plan a path through courses or a degree sequence.
 
 Current state:
 
-- The C++ backend reads `backend/data/courses.csv` and builds a prerequisite graph.
-- PostgreSQL schema and Docker Compose setup exist, but the app does not yet load the full catalog into PostgreSQL.
+- The C++ backend reads `backend/data/courses.csv`, parses grouped prerequisites through `PrerequisiteParser`, builds an in-memory catalog/graph, and serves a local read-only API through `backend/src/api/HttpServer.cpp`.
+- PostgreSQL schema, Docker Compose setup, and a dry-run-capable import script exist, but the running app does not yet depend on PostgreSQL.
 - The executable in `backend/src/main.cpp` is currently a demo/test harness, not the final app runtime.
-- `frontend/` is a placeholder. The planned frontend is React + TypeScript.
-- `scripts/generate_courses_csv.py` fetches UCSB Coursedog data and writes the CSV.
+- `backend/api/API_STRATEGY.md` defines the implemented first-pass JSON contracts and remaining planned endpoints such as `/paths`.
+- `frontend/` is a Vite React + TypeScript course explorer using Cytoscape and backend `fetch()` calls during normal runtime.
+- `scripts/generate_courses_csv.py` fetches UCSB Coursedog data and writes the current all-UCSB CSV with college, subject, and department metadata.
+
+Current integration status:
+
+- The first backend API is implemented and the frontend normal runtime uses backend `fetch()` calls.
+- The graph UI has a dark workspace, circular course nodes, click-to-inspect details, zoom/navigation controls, fullscreen behavior, and solid bright colors for alternative prerequisite groups.
+- Catalog generation now targets the current UCSB catalog by default and preserves college, department, and subject metadata for frontend filters.
 
 Target data flow:
 
@@ -20,10 +27,10 @@ Target data flow:
 UCSB Coursedog catalog
   -> scripts/generate_courses_csv.py
   -> backend/data/courses.csv
-  -> PostgreSQL import
-  -> C++ graph/query layer
+  -> optional PostgreSQL import
+  -> C++ catalog/API layer
   -> API
-  -> React/TypeScript visualization
+  -> React/TypeScript visualization with fetch-based data loading
 ```
 
 ## Global Agent Rules
@@ -36,6 +43,49 @@ UCSB Coursedog catalog
 - Prefer small, reviewable patches over broad refactors.
 - Add or update tests for behavior changes whenever a test surface exists. If tests do not exist yet, create the smallest useful harness for the lane.
 - Keep documentation and code names honest. For example, `CountPaths` currently returns shortest path length, not a count of all paths.
+
+## Agent Intelligence And Time Budgeting
+
+Use reasoning effort based on decision risk and blast radius, not on how large the edit looks. The default for normal repository work is `medium`.
+
+- Use more intelligence for irreversible or cross-lane decisions, not for mechanical work.
+- Do not use high reasoning to compensate for not reading code; inspect first.
+- Escalate reasoning when changing API contracts, schema, generated data formats, graph semantics, dependencies, or runtime source of truth.
+- De-escalate once the migration path and contract are stable.
+- Workers should state their assigned reasoning tier, risk level, expected files, and whether they need escalation before editing.
+
+Use `high` reasoning for:
+
+- Graph/catalog architecture, recursive traversal, cycle/path logic, and grouped prerequisite semantics.
+- Database schema evolution, external prerequisite modeling, credits modeling, and all-UCSB catalog expansion.
+- API framework/dependency choice, JSON contract design, source-of-truth boundaries, and CORS/error policy.
+- Cytoscape layout/performance decisions, fullscreen behavior, large graph UX, and fetch-state architecture.
+- Cross-lane refactors or migrations.
+
+Use `xhigh` only for decisions that are both hard to reverse and likely to affect multiple lanes, such as changing the runtime source of truth, replacing the graph representation, redesigning prerequisite semantics, or changing generated catalog/schema contracts after another lane depends on them.
+
+Use `low` reasoning for:
+
+- Component renames, label changes, small CSS cleanup, documentation wording, boilerplate, and route/component plumbing after contracts are stable.
+
+Before major refactors or migrations:
+
+1. Run `git status --short`.
+2. Inspect the full dependency chain for the lane, including call sites, tests, docs, generated-data assumptions, and API/frontend consumers.
+3. Check `AGENTS.md`, `backend/api/API_STRATEGY.md`, `docs/data-quality.md`, `docs/architecture.md`, and `TODO.md` if it exists.
+4. Write a brief migration strategy covering old behavior, new behavior, compatibility, tests, and rollback or handoff.
+
+## Branch, Commit, And Push Policy
+
+- At the start of any coding task, run `git status --short --branch` or `git branch --show-current` plus `git status --short` so the active branch and worktree state are known before edits.
+- Never push to `main` autonomously. Only push `main` when the user explicitly asks for that push in the current task.
+- If an agent is on `main` and the task does not explicitly require committing or pushing on `main`, keep work local and ask before any commit or branch-changing operation that would affect `main`.
+- On branches such as `experiment`, complete meaningful milestones by running the relevant build/tests/checks for the touched lane. If they pass, commit and push the focused changes.
+- A meaningful milestone means the requested behavior or documentation slice is complete, scoped, and verified enough to be useful on its own.
+- If the relevant checks fail, do not commit or push unless the user explicitly asks for a checkpoint.
+- Do not push broken mid-task work unless the user explicitly asks for a checkpoint push.
+- Keep commits focused. Stage only files that belong to the milestone, avoid unrelated worktree changes, and include a short commit summary describing what changed.
+- Before every commit or push, re-run `git status --short --branch` and review the staged diff so secrets, generated data, cache files, and unrelated changes are not included.
 
 ## Rate-Limit Pause And Handoff
 
@@ -78,11 +128,11 @@ Paused because Codex remaining usage was at or below 10%.
 
 ## Files Touched
 
-- 
+-
 
 ## Commands Run
 
-- 
+-
 
 ## Verification
 
@@ -92,11 +142,11 @@ Paused because Codex remaining usage was at or below 10%.
 
 ## Current State
 
-- 
+-
 
 ## Next Step After Limit Reset
 
-1. 
+1.
 ```
 
 ## Current Tooling And Commands
@@ -109,10 +159,34 @@ Build C++ backend:
 mingw32-make
 ```
 
+Build C++ API server:
+
+```powershell
+mingw32-make api
+```
+
+Run local API server:
+
+```powershell
+.\build\requisite-api.exe
+```
+
 Run current demo executable:
 
 ```powershell
 .\build\requisite-visualization.exe
+```
+
+Run C++ graph tests:
+
+```powershell
+mingw32-make test-cpp
+```
+
+Run API smoke test:
+
+```powershell
+mingw32-make test-api-smoke
 ```
 
 Clean build artifacts:
@@ -139,10 +213,32 @@ Check DB connectivity and seed state:
 .\scripts\test-db-connection.ps1
 ```
 
+Dry-run the CSV-to-PostgreSQL import without connecting to a database:
+
+```powershell
+python .\scripts\import_courses_to_postgres.py --dry-run
+```
+
 Regenerate course CSV from UCSB Coursedog:
 
 ```powershell
 python .\scripts\generate_courses_csv.py --output backend\data\courses.csv
+```
+
+Install and build the frontend:
+
+```powershell
+cd frontend
+npm install
+npm run build
+```
+
+Run the frontend dev server:
+
+```powershell
+cd frontend
+$env:VITE_API_BASE_URL='http://127.0.0.1:8080'
+npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
 Notes:
@@ -150,34 +246,44 @@ Notes:
 - `make` may not exist on Windows; `mingw32-make` is known to work in the current environment.
 - Python dependencies are not pinned yet. `scripts/generate_courses_csv.py` requires `requests`.
 - Docker Desktop may be installed at `C:\Program Files\Docker\Docker\resources\bin\docker.exe` even when `docker` is not on PATH.
+- The frontend currently builds with Vite and Cytoscape. A large Cytoscape bundle warning is acceptable unless the task is specifically about production bundle optimization.
 
 ## Architecture Notes
 
 Important files:
 
-- `backend/include/Course.h`: current course model.
-- `backend/include/Graph.h`: graph API and `PrereqGroups`.
-- `backend/src/Graph.cpp`: CSV parsing, prerequisite parsing, graph construction, and BFS traversal are currently mixed together.
+- `backend/include/api/ApiModels.h`: API/catalog response models, including `CourseRecord`.
+- `backend/include/Graph.h`: graph API, shortest-path compatibility wrapper, and grouped prerequisite access.
+- `backend/include/PrerequisiteParser.h` and `backend/src/PrerequisiteParser.cpp`: grouped prerequisite parser.
+- `backend/src/Graph.cpp`: CSV loading, graph construction, and BFS traversal.
 - `backend/src/main.cpp`: demo executable with hardcoded path checks.
-- `backend/src/DatabaseConfig.cpp`: reads DB config but does not connect to PostgreSQL.
+- `backend/src/DatabaseConfig.cpp`: reads and validates DB config but does not connect to PostgreSQL.
+- `backend/api/API_STRATEGY.md`: implemented read-only API contracts and integration boundary.
 - `backend/db/migrations/001_initial_schema.sql`: schema for courses and grouped prerequisites.
 - `backend/db/seeds/001_sample_data.sql`: small sample dataset only.
-- `backend/data/courses.csv`: generated CoE catalog data.
-- `scripts/generate_courses_csv.py`: UCSB catalog fetch and prerequisite parser.
-- `frontend/.gitkeep`: placeholder for the future React frontend.
+- `backend/data/courses.csv`: generated all-UCSB catalog data.
+- `scripts/generate_courses_csv.py`: UCSB catalog fetch, metadata extraction, and prerequisite parser.
+- `scripts/import_courses_to_postgres.py`: dry-run and SQL-output capable CSV import script.
+- `frontend/`: Vite React + TypeScript explorer with Cytoscape graph visualization and backend API fetches.
+- `frontend/src/data/mockCatalog.ts`: development fixture only; normal runtime should not import it.
+- `docs/prompts/connect-api-frontend-agents.md`: reusable coordinator prompt for the API/frontend/catalog integration push.
 
 Known project facts from the planning pass:
 
-- `backend/data/courses.csv` has 1,145 College of Engineering course rows.
-- 351 rows have prerequisites.
-- 144 rows contain OR prerequisite groups.
-- `TMP 492` and `TMP 493` have blank credits.
-- 91 prerequisite references point outside the current CoE CSV catalog.
+- `backend/data/courses.csv` has 12,271 all-UCSB course rows.
+- 2,156 rows have prerequisites.
+- 1,232 prerequisite groups are `any` groups.
+- 9 rows have blank credits.
+- 569 prerequisite option references point outside the current all-UCSB CSV catalog.
 - The Postgres seed has only 8 sample courses, 8 groups, and 13 options.
+- The frontend normal runtime uses backend `fetch()` calls and no longer shows mock-catalog status.
+- The current frontend graph uses Cytoscape with circular nodes, dark styling, fullscreen controls, and solid group-colored `any` edges.
 
 ## Parallel Work Lanes
 
 Use these lanes to split work across agents. Each lane owns a distinct set of files and should avoid overlapping edits with other lanes.
+
+For the next full integration push, use `docs/prompts/connect-api-frontend-agents.md`. It is a coordinator prompt designed to spawn planning-only workers first, then implement backend API connection, all-UCSB catalog expansion, frontend fetch integration, dark graph UI improvements, testing, and documentation in a controlled order.
 
 ### Lane 1: Backend Graph And Catalog
 
@@ -189,15 +295,17 @@ Primary ownership:
 
 Near-term goals:
 
-- Split CSV parsing and prerequisite parsing out of `Graph.cpp`.
-- Introduce a catalog abstraction that loads course data once.
-- Rename or replace `CountPaths` with a correctly named shortest-path API.
+- Introduce a catalog abstraction that loads course data once and exposes college, department, and subject metadata.
+- Replace remaining CSV-loading responsibilities in `Graph.cpp` with the catalog abstraction when the API boundary is ready.
+- Continue replacing `CountPaths` call sites with correctly named shortest-path APIs.
 - Add graph queries needed by visualization: direct prerequisites, recursive prerequisites, direct dependents, recursive dependents, shortest path with path reconstruction, and cycle detection.
 - Preserve grouped prerequisite semantics separately from flattened graph edges.
+- Provide a stable in-memory query interface for the API worker, including graph neighborhoods with `groupType` and `groupIndex`.
 
 Implementation guidance:
 
 - Keep flattened edges for traversal, but do not lose `all` vs `any` prerequisite groups.
+- Preserve group indexes because the frontend uses them to assign bright colors to alternative prerequisite groups.
 - Prefer const references for string inputs.
 - Keep heavy includes out of headers when possible.
 - Do not make PostgreSQL mandatory for this lane until the DB import/API work is ready.
@@ -220,7 +328,9 @@ Primary ownership:
 
 Near-term goals:
 
-- Load the full `backend/data/courses.csv` catalog into PostgreSQL.
+- Expand catalog generation beyond the current College of Engineering subset to the current UCSB course catalog available from Coursedog.
+- Preserve college, department, subject, and catalog metadata needed for frontend filters and API responses.
+- Load the full generated catalog into PostgreSQL.
 - Parse CSV prerequisites into `course_prerequisite_groups` and `course_prerequisite_options`.
 - Decide and document how external prerequisite references are represented.
 - Fix credits modeling for blank, variable, or nonstandard credit values.
@@ -232,6 +342,8 @@ Implementation guidance:
 - Do not force `prerequisite_id` to reference `courses(id)` until external prerequisite handling is settled.
 - Preserve group order and option order during import.
 - Prefer idempotent imports for local development.
+- Do not hardcode a single UCSB college list if the Coursedog source exposes academic unit metadata.
+- Do not rewrite generated catalog files until the script change is reviewed and the task explicitly authorizes regeneration.
 
 Suggested verification:
 
@@ -243,6 +355,7 @@ docker compose up -d postgres
 Add focused SQL checks for:
 
 - total course count
+- college/department/subject coverage
 - prerequisite group count
 - prerequisite option count
 - sample courses with OR groups
@@ -259,14 +372,17 @@ Primary ownership:
 
 Near-term goals:
 
-- Choose and document the API strategy before large implementation.
-- Define JSON response contracts for courses, prerequisite groups, graph nodes, graph edges, and paths.
+- Choose and document the concrete HTTP API implementation before adding a server dependency.
+- Implement JSON response contracts for courses, prerequisite groups, graph nodes, graph edges, and paths.
 - Add endpoints for course lookup, search, prerequisites, dependents, graph neighborhoods, and paths.
 - Connect API queries to either the in-memory catalog or PostgreSQL-backed catalog.
+- Add CORS support for the Vite frontend.
+- Make the frontend able to replace `mockCatalog.ts` with `fetch()` calls.
 
 Suggested endpoint shape:
 
 ```text
+GET /health
 GET /courses
 GET /courses/:id
 GET /courses/:id/prerequisites
@@ -278,6 +394,7 @@ GET /paths?from=CMPSC%208&to=CMPSC%20189A
 Implementation guidance:
 
 - Keep API contracts stable and small before building the frontend.
+- Include `college`, `department`, `subject`, prerequisite `groupType`, and `groupIndex` fields needed by the frontend.
 - Redact passwords in logs.
 - Validate DB config instead of silently accepting invalid values.
 - If adding third-party C++ dependencies, document installation and Windows build steps.
@@ -291,11 +408,14 @@ Primary ownership:
 
 Near-term goals:
 
-- Scaffold React + TypeScript, preferably with Vite.
-- Build course search and selected-course detail views.
-- Render prerequisite/dependent graph data from mocked JSON first, then API.
-- Visually distinguish required prerequisites from alternative prerequisite groups.
-- Add basic controls: graph depth, direction, subject filter, and fit-to-view.
+- Replace runtime use of `frontend/src/data/mockCatalog.ts` with API `fetch()` calls.
+- Build a resilient API client layer with loading, error, and empty states.
+- Keep course search and selected-course detail views, but update them from backend course detail and relationship endpoints.
+- Render prerequisite/dependent graph data from the backend graph endpoint.
+- Add multi-select college filtering. Users must be able to select more than one college and also render a subset rather than all colleges.
+- Improve graph depth, direction, subject, college, fit-to-view, zoom, reset, and fullscreen controls.
+- Make the graph visually dark with a black background, circular nodes, high contrast labels, and click-to-inspect course details.
+- Replace dotted OR-group lines with solid bright group-specific colors. Every `any` group that requires at least one option should receive its own stable color, such as green, purple, or blue, derived from `groupIndex`.
 
 Implementation guidance:
 
@@ -303,16 +423,21 @@ Implementation guidance:
 - Prefer established graph libraries over hand-rolled graph layout.
 - Consider Cytoscape.js for dense graph exploration or React Flow for a node-board style UI.
 - Keep visual styling quiet and utilitarian: this is a planning/exploration tool, not a promotional site.
+- Use black or near-black page and graph backgrounds, but preserve contrast for text, controls, focus states, and edge colors.
+- Course nodes should be circles, not rounded rectangles.
+- Clicking a graph node should select the course and show detail information. Fetch fresh backend data when needed rather than relying only on data already present in the graph response.
+- Fullscreen should use the browser Fullscreen API and include a CSS fallback for browsers or contexts where fullscreen requests fail.
+- Do not leave the normal app labeled as fixture-backed after real API integration. If a fallback fixture remains, label it in code and development-only UI states.
 
 Suggested verification after frontend exists:
 
 ```powershell
 npm install
-npm run dev
 npm run build
+npm run dev
 ```
 
-Exact commands may change after the frontend is scaffolded; update this file when they do.
+Also verify graph interaction in a browser: search, multi-select colleges, click course circles, zoom in/out, fit/reset, fullscreen enter/exit, and error handling when the backend is unavailable.
 
 ### Lane 5: Testing And Dev Experience
 
@@ -330,6 +455,8 @@ Near-term goals:
 - Add C++ tests for CSV parsing, prerequisite parsing, and graph traversal.
 - Add Python fixture tests for `scripts/generate_courses_csv.py`.
 - Add DB integration checks for schema/import behavior.
+- Add backend API smoke or contract tests once the HTTP runtime exists.
+- Add frontend API-client and graph interaction tests when practical.
 - Document reliable Windows build/test commands.
 - Add CI once commands are stable.
 
@@ -337,6 +464,8 @@ Implementation guidance:
 
 - Keep the first test framework lightweight. `doctest` or Catch2 is reasonable for C++.
 - Test tricky prerequisite cases: OR groups, semicolon groups, W courses, course ranges, concurrent enrollment text, and non-course requirements.
+- Test group index preservation because frontend edge colors depend on it.
+- Test multi-college catalog filtering and frontend fetch error states.
 - Avoid requiring network access for parser unit tests; use fixtures.
 
 ### Lane 6: Documentation And Product Decisions
@@ -350,21 +479,22 @@ Primary ownership:
 
 Near-term goals:
 
-- Replace README placeholders with a clear roadmap.
-- Fix wording such as "perquisites" -> "prerequisites".
+- Keep README, architecture docs, and data-quality docs aligned with current implementation.
+- Keep wording aligned with the implemented Vite frontend and API integration.
 - Document project scope, data flow, setup commands, and current limitations.
-- Add `docs/architecture.md` for the system design.
-- Add `docs/data-quality.md` for parser limitations and catalog data caveats.
+- Document backend API startup and frontend API configuration once implemented.
+- Document the all-UCSB catalog scope and any remaining Coursedog/parser caveats once catalog expansion lands.
 - Capture open decisions so implementation agents do not guess silently.
 
 Open decisions to document:
 
-- UCSB CoE only vs all UCSB departments.
+- How UCSB colleges, schools, divisions, departments, and subjects should be named in filters.
 - PostgreSQL as source of truth vs CSV as runtime source.
 - C++ API vs a web-native backend.
 - How to model external prerequisites.
 - How to model concurrent enrollment, minimum grades, standing requirements, and instructor consent.
 - Whether this is a local-only tool, deployed web app, class project, or portfolio app.
+- Whether frontend fallback fixtures should exist after the backend API is connected.
 
 ## Coordination Rules For Multiple Agents
 
@@ -372,9 +502,10 @@ Open decisions to document:
 - If a task crosses lanes, identify the handoff point and make the smallest shared contract first.
 - Do not let two agents edit the same file at the same time unless one is explicitly integrating.
 - Backend graph work should not block on API/frontend decisions; keep a clean in-memory interface.
-- Frontend work should use mocked API responses until API contracts are stable.
+- Frontend normal runtime should stay on backend `fetch()` calls. Mock fixtures may be used only in tests or clearly labeled development-only paths.
 - DB import work should not rewrite the C++ parser unless Lane 1 agrees on shared parsing ownership.
 - Documentation updates should reflect actual behavior, not planned behavior, unless clearly labeled as roadmap.
+- Catalog expansion and API integration must agree on stable field names for `college`, `department`, and `subject` before frontend multi-select filters are finalized.
 
 ## Definition Of Done
 

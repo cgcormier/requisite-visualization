@@ -7,8 +7,8 @@ This lane owns the API and integration boundary. The first implementation should
 - Start with transport-independent C++ response models and serialization helpers under `backend/include/api/` and `backend/src/api/`.
 - Serve data from the in-memory catalog/graph interface first, then add a PostgreSQL-backed adapter after the import pipeline settles.
 - Keep PostgreSQL optional until the database import path and external prerequisite representation are stable.
-- Defer HTTP dependency selection. Candidate libraries should be compared in a small follow-up note or patch before implementation, including Windows build steps, dependency installation, routing support, JSON support, and CORS behavior.
-- Do not add a web server framework until the response contracts below are accepted by the frontend and graph lanes.
+- The first HTTP runtime is a minimal standalone C++ socket server in `backend/src/api/HttpServer.cpp`. It binds to `127.0.0.1`, defaults to port `8080`, and can be moved to a web framework later if API complexity grows.
+- The server reads `COURSES_CSV_PATH` when set, otherwise it falls back to `backend/data/courses.csv`, `data/courses.csv`, and `courses.csv`. It does not read `.env`.
 
 ## Database Environment Precedence
 
@@ -36,21 +36,22 @@ Secrets must not be logged. Redacted connection strings may show usernames, host
 The proposed first API surface is read-only:
 
 ```text
+GET /health
 GET /courses
 GET /courses/:id
 GET /courses/:id/prerequisites
 GET /courses/:id/dependents
 GET /graph?course=CMPSC%2016&direction=both&depth=3
-GET /paths?from=CMPSC%208&to=CMPSC%20189A
 ```
 
 Query behavior:
 
-- `/courses` supports optional `q`, `subject`, and `limit` query parameters.
+- `/courses` supports optional `q`, `subjects`, `colleges`, and `limit` query parameters. `subject` and `college` are accepted as aliases. `limit` defaults to `100` and may be as high as `20000` so the frontend can populate full-catalog filters.
 - `:id` uses the normalized catalog id such as `CMPSC 16`.
 - `direction` accepts `prerequisites`, `dependents`, or `both`.
 - `depth` defaults to `1` and should have a conservative maximum.
-- `/paths` returns the shortest known path first; all-path enumeration is out of scope for the initial API.
+- `/graph` supports optional `subjects` and `colleges` filters. The root course is always included when found.
+- `/paths` is still planned, but is not part of the first implemented server.
 
 ## JSON Contracts
 
@@ -61,7 +62,9 @@ Course summary:
   "id": "CMPSC 16",
   "name": "Problem Solving With Computers I",
   "credits": 4,
-  "college": "ENGR"
+  "college": "College of Engineering",
+  "department": null,
+  "subject": "CMPSC"
 }
 ```
 
@@ -72,10 +75,13 @@ Course detail:
   "id": "CMPSC 16",
   "name": "Problem Solving With Computers I",
   "credits": 4,
-  "college": "ENGR",
+  "college": "College of Engineering",
+  "department": null,
+  "subject": "CMPSC",
   "prerequisiteGroups": [
     {
-      "type": "all",
+      "groupType": "all",
+      "groupIndex": 0,
       "options": [
         { "courseId": "MATH 3A", "external": true }
       ]
@@ -84,14 +90,15 @@ Course detail:
 }
 ```
 
-Prerequisite or dependent response:
+Prerequisite response:
 
 ```json
 {
   "courseId": "CMPSC 16",
   "groups": [
     {
-      "type": "any",
+      "groupType": "any",
+      "groupIndex": 0,
       "options": [
         { "courseId": "CMPSC 8", "external": false },
         { "courseId": "ECE 15", "external": false }
@@ -99,6 +106,23 @@ Prerequisite or dependent response:
     }
   ],
   "flattenedCourseIds": ["CMPSC 8", "ECE 15"]
+}
+```
+
+Dependent response:
+
+```json
+{
+  "courseId": "CMPSC 16",
+  "relationships": [
+    {
+      "courseId": "CMPSC 24",
+      "groupType": "all",
+      "groupIndex": 0,
+      "external": false
+    }
+  ],
+  "flattenedCourseIds": ["CMPSC 24"]
 }
 ```
 
@@ -110,7 +134,15 @@ Graph response:
   "direction": "both",
   "depth": 3,
   "nodes": [
-    { "id": "CMPSC 16", "label": "CMPSC 16", "external": false }
+    {
+      "id": "CMPSC 16",
+      "label": "CMPSC 16",
+      "name": "Problem Solving With Computers I",
+      "external": false,
+      "college": "College of Engineering",
+      "department": null,
+      "subject": "CMPSC"
+    }
   ],
   "edges": [
     {
@@ -151,5 +183,5 @@ Error response:
 
 - Lane 1 should provide stable in-memory queries for direct prerequisites, recursive prerequisites, dependents, graph neighborhoods, and shortest path reconstruction.
 - Lane 2 should settle external prerequisite storage before the PostgreSQL-backed adapter becomes the source for grouped prerequisite responses.
-- Lane 4 can mock the JSON contracts in this file before an HTTP server exists.
-- Lane 5 should add focused tests for config validation and contract serialization once the first API code lands.
+- Lane 4 should keep normal runtime on `fetch()` calls and use `frontend/src/data/mockCatalog.ts` only as a development fixture if needed.
+- Lane 5 should keep API smoke and catalog contract tests aligned with these response contracts.

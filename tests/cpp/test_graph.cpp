@@ -100,6 +100,17 @@ int main() {
             {"MATH 8", "PSTAT 120A"},
             {"ECE 139", "PSTAT 120B"},
         });
+    if (groups.orGroups.size() == 2) {
+        expectVectorEqual("alternative group index 0 stays first",
+            groups.orGroups[0],
+            {"MATH 8", "PSTAT 120A"});
+        expectVectorEqual("alternative group index 1 stays second",
+            groups.orGroups[1],
+            {"ECE 139", "PSTAT 120B"});
+    } else {
+        ++failures;
+        std::cout << "FAIL: alternative group index coverage requires exactly two groups" << std::endl;
+    }
     expectVectorEqual("flattened prerequisite list includes required and alternatives",
         groups.allPrereqs(),
         {"CMPSC 40", "CMPSC 32", "MATH 8", "PSTAT 120A", "ECE 139", "PSTAT 120B"});

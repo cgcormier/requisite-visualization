@@ -14,6 +14,8 @@ export const courses: CourseDetail[] = [
     name: 'Introduction to Computer Science',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'any',
@@ -29,6 +31,8 @@ export const courses: CourseDetail[] = [
     name: 'Problem Solving With Computers I',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'any',
@@ -44,6 +48,8 @@ export const courses: CourseDetail[] = [
     name: 'Problem Solving With Computers II',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -56,6 +62,8 @@ export const courses: CourseDetail[] = [
     name: 'Object Oriented Design and Implementation',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -68,6 +76,8 @@ export const courses: CourseDetail[] = [
     name: 'Foundations of Computer Science',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -87,6 +97,8 @@ export const courses: CourseDetail[] = [
     name: 'Data Structures and Algorithms I',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -102,6 +114,8 @@ export const courses: CourseDetail[] = [
     name: 'Automata and Formal Languages',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -114,6 +128,8 @@ export const courses: CourseDetail[] = [
     name: 'Advanced Applications Programming',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -126,6 +142,8 @@ export const courses: CourseDetail[] = [
     name: 'Artificial Intelligence',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -145,6 +163,8 @@ export const courses: CourseDetail[] = [
     name: 'Capstone Project I',
     credits: 4,
     college: 'ENGR',
+    department: 'Computer Science',
+    subject: 'CMPSC',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -157,6 +177,8 @@ export const courses: CourseDetail[] = [
     name: 'Introduction to Computer Programming',
     credits: 4,
     college: 'ENGR',
+    department: 'Electrical and Computer Engineering',
+    subject: 'ECE',
     prerequisiteGroups: [
       {
         type: 'all',
@@ -169,6 +191,8 @@ export const courses: CourseDetail[] = [
     name: 'Digital Design Principles',
     credits: 4,
     college: 'ENGR',
+    department: 'Electrical and Computer Engineering',
+    subject: 'ECE',
     prerequisiteGroups: [
       {
         type: 'any',

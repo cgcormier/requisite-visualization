@@ -6,6 +6,8 @@ export interface CourseSummary {
   name: string;
   credits: number | null;
   college: string;
+  department: string | null;
+  subject: string;
 }
 
 export interface PrerequisiteOption {
@@ -33,6 +35,9 @@ export interface GraphNode {
   label: string;
   name?: string;
   external: boolean;
+  college?: string;
+  department?: string | null;
+  subject?: string;
 }
 
 export interface GraphEdge {
@@ -41,6 +46,7 @@ export interface GraphEdge {
   relationship: 'prerequisite' | 'dependent';
   groupType: PrerequisiteGroupType;
   groupIndex: number;
+  external?: boolean;
 }
 
 export interface GraphResponse {
@@ -49,4 +55,20 @@ export interface GraphResponse {
   depth: number;
   nodes: GraphNode[];
   edges: GraphEdge[];
+}
+
+export interface ApiErrorBody {
+  error: {
+    code: string;
+    message: string;
+  };
+}
+
+export type LoadStatus = 'idle' | 'loading' | 'success' | 'error';
+
+export type GraphCommandAction = 'fit' | 'zoom-in' | 'zoom-out' | 'reset';
+
+export interface GraphCommand {
+  action: GraphCommandAction;
+  nonce: number;
 }
