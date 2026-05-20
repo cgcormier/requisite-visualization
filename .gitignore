@@ -4,5 +4,8 @@ build/
 *.o
 *.obj
 *.exe
+__pycache__/
+*.pyc
 requisite-visualization
 feedback.md
+review.md

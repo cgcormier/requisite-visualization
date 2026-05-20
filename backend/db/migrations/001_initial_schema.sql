@@ -3,7 +3,7 @@ BEGIN;
 CREATE TABLE IF NOT EXISTS courses (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
-    credits INTEGER NOT NULL CHECK (credits > 0),
+    credits TEXT NOT NULL DEFAULT '',
     college TEXT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -11,6 +11,11 @@ CREATE TABLE IF NOT EXISTS courses (
     CONSTRAINT courses_name_not_blank CHECK (btrim(name) <> ''),
     CONSTRAINT courses_college_not_blank CHECK (btrim(college) <> '')
 );
+
+ALTER TABLE courses DROP CONSTRAINT IF EXISTS courses_credits_check;
+ALTER TABLE courses ALTER COLUMN credits TYPE TEXT USING credits::text;
+ALTER TABLE courses ALTER COLUMN credits SET DEFAULT '';
+ALTER TABLE courses ALTER COLUMN credits SET NOT NULL;
 
 CREATE TABLE IF NOT EXISTS course_prerequisite_groups (
     course_id TEXT NOT NULL REFERENCES courses(id) ON DELETE CASCADE,
@@ -54,7 +59,8 @@ SELECT
     course_id AS target_course_id
 FROM course_prerequisite_options;
 
-COMMENT ON TABLE courses IS 'Course catalog rows matching Course.h: id, name, credits, and college.';
+COMMENT ON TABLE courses IS 'Course catalog rows: id, name, raw catalog credits text, and college.';
+COMMENT ON COLUMN courses.credits IS 'Catalog credit value as emitted by the CSV; blank and nonnumeric values are allowed.';
 COMMENT ON TABLE course_prerequisite_groups IS 'Prerequisite expression groups. all groups require every option; any groups require one option.';
 COMMENT ON TABLE course_prerequisite_options IS 'Prerequisite course ids inside each requirement group. prerequisite_id may reference courses outside this local catalog.';
 COMMENT ON VIEW course_prerequisites IS 'Expanded prerequisite rows with group semantics preserved.';
